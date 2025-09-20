@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="welcome">
+  {{ if .Params.image }}
+    <img src="{{ .Params.image | relURL }}" alt="{{ .Site.Title }}" class="hero-image">
+  {{ end }}
+  <h2>Bienvenue sur le site de l'association Les Amis de Jeanne Jozon</h2>
+  <p>Ce site présente des informations sur la vie et l'œuvre de Jeanne Jozon, des galeries d'œuvres et un calendrier des événements.</p>
+</section>
+{{ end }}
+{{ template "base" . }}
