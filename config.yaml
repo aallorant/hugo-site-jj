@@ -1,60 +1,47 @@
-baseURL: "https://example.netlify.app/"
+theme: "PaperMod"
 languageCode: "fr-fr"
 title: "Les Amis de Jeanne Jozon"
-theme: "PaperMod"
-enableRobotsTXT: true
-summaryLength: 20
 defaultContentLanguage: fr
+summaryLength: 24
 
-# Menus (top navigation)
 menu:
   main:
     - name: Accueil
       url: /
       weight: 1
-    - name: À propos
-      url: /a-propos/
-      weight: 2
     - name: Œuvres
       url: /oeuvres/
+      weight: 2
+    - name: Expos & Salons
+      url: /expos/
       weight: 3
-    - name: Événements
-      url: /evenements/
+    - name: Correspondance
+      url: /correspondance/
       weight: 4
+    - name: Revue de presse
+      url: /presse/
+      weight: 5
+    - name: Famille Jozon
+      url: /famille/
+      weight: 6
+    - name: À propos
+      url: /a-propos/
+      weight: 7
     - name: Contact
       url: /contact/
-      weight: 5
+      weight: 8
 
 params:
-  description: "Site dédié à la mémoire de Jeanne Jozon, artiste-sculptrice"
-  author: "Les Amis de Jeanne Jozon"
-  defaultTheme: light        # or auto / dark
-  disableThemeToggle: false
+  defaultTheme: light
   ShowBreadCrumbs: true
   ShowPostNavLinks: true
-  ShowReadingTime: false
-  ShowShareButtons: false
-  ShowCodeCopyButtons: true
-  hideFooter: false
+  # Optional: remove homeInfoParams if you want a full-width hero cover on Accueil
+  # homeInfoParams:
+  #   Title: ...
+  #   Content: ...
 
-  # Home intro box (PaperMod)
-  homeInfoParams:
-    Title: "Les Amis de Jeanne Jozon"
-    Content: >
-      Association dédiée à la mémoire de Jeanne Jozon, sculptrice. Découvrez sa biographie,
-      ses œuvres et les événements à venir.
-
-  # Card thumbnails use "cover" from front matter
-  assets:
-    disableFingerprinting: true
-
-# Taxonomies if you want to tag works later
+# Helpful taxonomy if you want more filter chips later:
 taxonomies:
+  type: "types"
   tag: "tags"
-  category: "categories"
-
-# Build settings
-markup:
-  goldmark:
-    renderer:
-      unsafe: true   # allows raw HTML in content if needed
+  theme: "themes"
