@@ -5,6 +5,9 @@
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-10-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/evenements/evenement-exemple/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/a-propos/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -14,14 +17,38 @@
     <loc>http://localhost:1313/evenements/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/oeuvres/</loc>
-    <lastmod>1897-01-01T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/appartement-babylone/</loc>
   </url><url>
-    <loc>http://localhost:1313/oeuvres/oeuvre-exemple/</loc>
-    <lastmod>1897-01-01T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/atelier/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/bijoux/</loc>
+  </url><url>
+    <loc>http://localhost:1313/biographie/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
+    <loc>http://localhost:1313/production/dessins/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/ebauches/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/jouets/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/pastel-craie/</loc>
+  </url><url>
+    <loc>http://localhost:1313/portrait/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/pyrogravure/</loc>
+  </url><url>
+    <loc>http://localhost:1313/salons/</loc>
+  </url><url>
+    <loc>http://localhost:1313/scenes-rurales/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/sculpture/</loc>
+  </url><url>
     <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/vases-buires-encriers-salieres/</loc>
   </url>
 </urlset>

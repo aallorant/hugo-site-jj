@@ -1,0 +1,26 @@
+menu:
+  main:
+    - name: Atelier
+      url: /atelier/
+      weight: 1
+    - name: Biographie
+      url: /biographie/
+      weight: 2
+    - name: Portrait
+      url: /portrait/
+      weight: 3
+    - name: Production
+      url: /production/
+      weight: 4
+    - name: Appartement rue de Babylone
+      url: /appartement-babylone/
+      weight: 5
+    - name: Salons
+      url: /salons/
+      weight: 6
+    - name: Scènes rurales
+      url: /scenes-rurales/
+      weight: 7
+    - name: Contact
+      url: /contact/
+      weight: 8

@@ -6,42 +6,27 @@ summaryLength: 24
 
 menu:
   main:
-    - name: Accueil
-      url: /
+    - name: Atelier
+      url: /atelier/
       weight: 1
-    - name: Œuvres
-      url: /oeuvres/
+    - name: Biographie
+      url: /biographie/
       weight: 2
-    - name: Expos & Salons
-      url: /expos/
+    - name: Portrait
+      url: /portrait/
       weight: 3
-    - name: Correspondance
-      url: /correspondance/
+    - name: Production
+      url: /production/
       weight: 4
-    - name: Revue de presse
-      url: /presse/
+    - name: Appartement rue de Babylone
+      url: /appartement-babylone/
       weight: 5
-    - name: Famille Jozon
-      url: /famille/
+    - name: Salons
+      url: /salons/
       weight: 6
-    - name: À propos
-      url: /a-propos/
+    - name: Scènes rurales
+      url: /scenes-rurales/
       weight: 7
     - name: Contact
       url: /contact/
       weight: 8
-
-params:
-  defaultTheme: light
-  ShowBreadCrumbs: true
-  ShowPostNavLinks: true
-  # Optional: remove homeInfoParams if you want a full-width hero cover on Accueil
-  # homeInfoParams:
-  #   Title: ...
-  #   Content: ...
-
-# Helpful taxonomy if you want more filter chips later:
-taxonomies:
-  type: "types"
-  tag: "tags"
-  theme: "themes"

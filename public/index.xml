@@ -6,8 +6,15 @@
     <description>Recent content in Accueil on Les Amis de Jeanne Jozon</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Titre de l&#39;événement</title>
+      <link>http://localhost:1313/evenements/evenement-exemple/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/evenements/evenement-exemple/</guid>
+      <description>&lt;p&gt;Description de l&amp;rsquo;événement en français. Remplacez ce texte par la description et les détails de l&amp;rsquo;événement.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>À propos</title>
       <link>http://localhost:1313/a-propos/</link>
@@ -22,13 +29,6 @@
       <guid>http://localhost:1313/contact/</guid>
       <description>&lt;p&gt;Vous pouvez contacter l&amp;rsquo;association via l&amp;rsquo;adresse e-mail suivante : [adresse@example.com].&lt;/p&gt;
 &lt;p&gt;Merci de votre intérêt !&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Titre de l’œuvre (exemple)</title>
-      <link>http://localhost:1313/oeuvres/oeuvre-exemple/</link>
-      <pubDate>Fri, 01 Jan 1897 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/oeuvres/oeuvre-exemple/</guid>
-      <description>Courte description de l’œuvre.</description>
     </item>
   </channel>
 </rss>

@@ -6,7 +6,14 @@
     <description>Recent content in Événements on Les Amis de Jeanne Jozon</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>fr-fr</language>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/evenements/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Titre de l&#39;événement</title>
+      <link>http://localhost:1313/evenements/evenement-exemple/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/evenements/evenement-exemple/</guid>
+      <description>&lt;p&gt;Description de l&amp;rsquo;événement en français. Remplacez ce texte par la description et les détails de l&amp;rsquo;événement.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

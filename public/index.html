@@ -8,10 +8,10 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Les Amis de Jeanne Jozon</title>
 
-<meta name="description" content="Site dédié à la mémoire de Jeanne Jozon, artiste-sculptrice">
-<meta name="author" content="Les Amis de Jeanne Jozon">
+<meta name="description" content="">
+<meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bcdf044b519c2a149dbd9fe1ce160dbbe2c2c9e33e5d4237c3af0aea11765bc4.css" integrity="sha256-vN8ES1GcKhSdvZ/hzhYNu&#43;LCyeM&#43;XUI3w68K6hF2W8Q=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -29,12 +29,44 @@
         }
 
     </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
 </noscript>
 </head>
 
 <body class="list" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
     }
 
@@ -69,23 +101,38 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Accueil">
-                    <span class="active">Accueil</span>
+                <a href="http://localhost:1313/atelier/" title="Atelier">
+                    <span>Atelier</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/a-propos/" title="À propos">
-                    <span>À propos</span>
+                <a href="http://localhost:1313/biographie/" title="Biographie">
+                    <span>Biographie</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/oeuvres/" title="Œuvres">
-                    <span>Œuvres</span>
+                <a href="http://localhost:1313/portrait/" title="Portrait">
+                    <span>Portrait</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/evenements/" title="Événements">
-                    <span>Événements</span>
+                <a href="http://localhost:1313/production/" title="Production">
+                    <span>Production</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/appartement-babylone/" title="Appartement rue de Babylone">
+                    <span>Appartement rue de Babylone</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/salons/" title="Salons">
+                    <span>Salons</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/scenes-rurales/" title="Scènes rurales">
+                    <span>Scènes rurales</span>
                 </a>
             </li>
             <li>
@@ -101,33 +148,18 @@
 
 
 </div>
-<article class="first-entry home-info">
-    <header class="entry-header">
-        <h1>Les Amis de Jeanne Jozon</h1>
-    </header>
-    <div class="entry-content">
-        Association dédiée à la mémoire de Jeanne Jozon, sculptrice. Découvrez sa biographie, ses œuvres et les événements à venir.
-    </div>
-    <footer class="entry-footer">
-        <div class="social-icons" >
-</div>
 
-    </footer>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover">
-        <img loading="lazy" src="http://localhost:1313/images/uploads/jeanne_jozon_4.jpg" alt="Jeanne Jozon – œuvre">
-</figure>
+<article class="first-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Titre de l’œuvre (exemple)
+    <h2 class="entry-hint-parent">Titre de l&#39;événement
     </h2>
   </header>
   <div class="entry-content">
-    <p>Courte description de l’œuvre.</p>
+    <p>Description de l’événement en français. Remplacez ce texte par la description et les détails de l’événement.
+</p>
   </div>
-  <footer class="entry-footer"><span title='1897-01-01 00:00:00 +0000 UTC'>janvier 1, 1897</span>&nbsp;·&nbsp;Les Amis de Jeanne Jozon</footer>
-  <a class="entry-link" aria-label="post link to Titre de l’œuvre (exemple)" href="http://localhost:1313/oeuvres/oeuvre-exemple/"></a>
+  <footer class="entry-footer"><span title='2025-10-01 00:00:00 +0000 UTC'>octobre 1, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Titre de l&#39;événement" href="http://localhost:1313/evenements/evenement-exemple/"></a>
 </article>
     </main>
     
