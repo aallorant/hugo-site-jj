@@ -1,11 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dessins on Les Amis de Jeanne Jozon</title>
     <link>http://localhost:1313/production/dessins/</link>
     <description>Recent content in Dessins on Les Amis de Jeanne Jozon</description>
-    <generator>Hugo -- 0.150.0</generator>
-    <language>fr-fr</language>
-    <atom:link href="http://localhost:1313/production/dessins/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language><atom:link href="http://localhost:1313/production/dessins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mode</title>
+      <link>http://localhost:1313/production/dessins/mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/dessins/mode/</guid>
+        <media:content url="http://localhost:1313/production/dessins/mode/Plume-17_hu_44c897e1cf25d405.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/dessins/mode/Plume-17_hu_44c897e1cf25d405.jpg&quot; /&gt;
+          &lt;p&gt;&lt;no value&gt;&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Nus</title>
+      <link>http://localhost:1313/production/dessins/nus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/dessins/nus/</guid>
+        <media:content url="http://localhost:1313/production/dessins/nus/Nu-1_hu_e59718b77728e611.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/dessins/nus/Nu-1_hu_e59718b77728e611.jpg&quot; /&gt;
+          &lt;p&gt;&lt;no value&gt;&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Portraits</title>
+      <link>http://localhost:1313/production/dessins/portraits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/dessins/portraits/</guid>
+        <media:content url="http://localhost:1313/production/dessins/portraits/Crayon-10_hu_65308cff35af606d.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/dessins/portraits/Crayon-10_hu_65308cff35af606d.jpg&quot; /&gt;
+          &lt;p&gt;&lt;no value&gt;&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Posture</title>
+      <link>http://localhost:1313/production/dessins/posture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/dessins/posture/</guid>
+        <media:content url="http://localhost:1313/production/dessins/posture/Auto-portrait-1_hu_9787b34180257bd.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/dessins/posture/Auto-portrait-1_hu_9787b34180257bd.jpg&quot; /&gt;
+          &lt;p&gt;&lt;no value&gt;&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Scène domestique</title>
+      <link>http://localhost:1313/production/dessins/sc%C3%A8ne-domestique/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/dessins/sc%C3%A8ne-domestique/</guid>
+        <media:content url="http://localhost:1313/production/dessins/sc%C3%A8ne-domestique/Croquis-7_hu_45fdb57838c9004e.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/dessins/sc%C3%A8ne-domestique/Croquis-7_hu_45fdb57838c9004e.jpg&quot; /&gt;
+          &lt;p&gt;&lt;no value&gt;&lt;/p&gt;
+        </description></item>
   </channel>
 </rss>

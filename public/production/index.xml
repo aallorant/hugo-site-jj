@@ -1,11 +1,80 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Production on Les Amis de Jeanne Jozon</title>
     <link>http://localhost:1313/production/</link>
     <description>Recent content in Production on Les Amis de Jeanne Jozon</description>
-    <generator>Hugo -- 0.150.0</generator>
-    <language>fr-fr</language>
-    <atom:link href="http://localhost:1313/production/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language><atom:link href="http://localhost:1313/production/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bijoux</title>
+      <link>http://localhost:1313/production/bijoux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/bijoux/</guid>
+        <media:content url="http://localhost:1313/production/bijoux/bijoux-1-2_hu_27e499f80255081e.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/bijoux/bijoux-1-2_hu_27e499f80255081e.jpg&quot; /&gt;
+          &lt;p&gt;Créations ornementales et bijoux Art nouveau de Jeanne Jozon&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Ébauches</title>
+      <link>http://localhost:1313/production/ebauches/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/ebauches/</guid>
+        <media:content url="http://localhost:1313/production/ebauches/Danseuse-1_hu_f5deaafbc0fe430.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/ebauches/Danseuse-1_hu_f5deaafbc0fe430.jpg&quot; /&gt;
+          &lt;p&gt;Esquisses et ébauches de sculptures&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Jouets</title>
+      <link>http://localhost:1313/production/jouets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/jouets/</guid>
+        <media:content url="http://localhost:1313/production/jouets/Balancoire_hu_7ba7ae9f3706c3fe.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/jouets/Balancoire_hu_7ba7ae9f3706c3fe.jpg&quot; /&gt;
+          &lt;p&gt;Jouets artistiques créés par Jeanne Jozon, exposés à l’Union Centrale des Arts Décoratifs&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Pastel et Craie</title>
+      <link>http://localhost:1313/production/pastel-craie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/pastel-craie/</guid>
+        <media:content url="http://localhost:1313/production/pastel-craie/Boite-a-gants--J.Jozon_hu_89c54eb3e469f282.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/pastel-craie/Boite-a-gants--J.Jozon_hu_89c54eb3e469f282.jpg&quot; /&gt;
+          &lt;p&gt;Pastels et dessins rehaussés à la craie de Jeanne Jozon&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Pyrogravures</title>
+      <link>http://localhost:1313/production/pyrogravure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/pyrogravure/</guid>
+        <media:content url="http://localhost:1313/production/pyrogravure/Pyrogr.-1_hu_fa16c88465767c31.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/pyrogravure/Pyrogr.-1_hu_fa16c88465767c31.jpg&quot; /&gt;
+          &lt;p&gt;Décors et objets en bois pyrogravés&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Sculptures</title>
+      <link>http://localhost:1313/production/sculpture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/sculpture/</guid>
+        <media:content url="http://localhost:1313/production/sculpture/A-la-fontaine-1_hu_3d78a05d03c8797f.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/sculpture/A-la-fontaine-1_hu_3d78a05d03c8797f.jpg&quot; /&gt;
+          &lt;p&gt;Œuvres sculptées de Jeanne Jozon (1895–1939)&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Vases, Buires, Encriers et Salières</title>
+      <link>http://localhost:1313/production/vases-buires-encriers-salieres/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/production/vases-buires-encriers-salieres/</guid>
+        <media:content url="http://localhost:1313/production/vases-buires-encriers-salieres/115_hu_d5a52834fe283902.jpg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/production/vases-buires-encriers-salieres/115_hu_d5a52834fe283902.jpg&quot; /&gt;
+          &lt;p&gt;Objets d’art décoratif réalisés par Jeanne Jozon&lt;/p&gt;
+        </description></item>
   </channel>
 </rss>

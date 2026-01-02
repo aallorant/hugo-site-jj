@@ -1,0 +1,16 @@
+:root {
+  --background-color: #faf7f3;
+  --text-color: #2a2a2a;
+  --accent-color: #b68d4c; /* warm copper */
+}
+
+.navbar a {
+  color: #5a4630;
+}
+.navbar a:hover {
+  color: #b68d4c;
+}
+.dropdown-menu {
+  background: #f9f6f1;
+  border-radius: 8px;
+}

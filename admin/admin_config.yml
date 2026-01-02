@@ -1,0 +1,172 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images go
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+# French language
+locale: "fr"
+
+collections:
+  # ========================================
+  # ÉVÉNEMENTS - Your dad will use this most
+  # ========================================
+  - name: "evenements"
+    label: "Événements"
+    label_singular: "Événement"
+    folder: "content/evenements"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    summary: "{{title}} - {{date}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de l'événement", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+      - { label: "Lieu", name: "lieu", widget: "string", required: false }
+      - { label: "Résumé (court texte)", name: "summary", widget: "text", required: false }
+      - label: "Image"
+        name: "cover"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Fichier image", name: "image", widget: "image", required: false }
+          - { label: "Description de l'image", name: "alt", widget: "string", required: false }
+      - { label: "Description complète", name: "body", widget: "markdown", required: false }
+
+  # ========================================
+  # PAGES PRINCIPALES
+  # ========================================
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Accueil"
+        name: "accueil"
+        file: "content/_index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+      
+      - label: "Biographie"
+        name: "biographie"
+        file: "content/biographie/_index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+      
+      - label: "À propos"
+        name: "a-propos"
+        file: "content/a-propos/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+      
+      - label: "Contact"
+        name: "contact"
+        file: "content/contact/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+      
+      - label: "Salons"
+        name: "salons"
+        file: "content/salons/_index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # ========================================
+  # GALERIES - Pour modifier les descriptions
+  # ========================================
+  - name: "galeries"
+    label: "Galeries (descriptions)"
+    files:
+      - label: "Atelier"
+        name: "atelier"
+        file: "content/atelier/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Portraits"
+        name: "portrait"
+        file: "content/portrait/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Sculptures"
+        name: "sculpture"
+        file: "content/production/sculpture/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Bijoux"
+        name: "bijoux"
+        file: "content/production/bijoux/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Ébauches"
+        name: "ebauches"
+        file: "content/production/ebauches/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Jouets"
+        name: "jouets"
+        file: "content/production/jouets/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Pastel & Craie"
+        name: "pastel-craie"
+        file: "content/production/pastel-craie/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Pyrogravures"
+        name: "pyrogravure"
+        file: "content/production/pyrogravure/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Objets décoratifs"
+        name: "vases"
+        file: "content/production/vases-buires-encriers-salieres/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Rue de Babylone"
+        name: "rue-de-babylone"
+        file: "content/rue-de-babylone/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+      
+      - label: "Scènes rurales"
+        name: "scenes-rurales"
+        file: "content/scenes-rurales/index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }

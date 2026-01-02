@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Salons on Les Amis de Jeanne Jozon</title>
     <link>http://localhost:1313/salons/</link>
     <description>Recent content in Salons on Les Amis de Jeanne Jozon</description>
-    <generator>Hugo -- 0.150.0</generator>
-    <language>fr-fr</language>
-    <atom:link href="http://localhost:1313/salons/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language><atom:link href="http://localhost:1313/salons/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Salons et Expositions</title>
+      <link>http://localhost:1313/salons/salons_rename_to_index/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/salons/salons_rename_to_index/</guid><description>Chronologie des participations de Jeanne Jozon aux expositions artistiques (1895–1939)</description></item>
   </channel>
 </rss>

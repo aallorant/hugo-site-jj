@@ -17,8 +17,6 @@
     <loc>http://localhost:1313/evenements/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/appartement-babylone/</loc>
-  </url><url>
     <loc>http://localhost:1313/atelier/</loc>
   </url><url>
     <loc>http://localhost:1313/production/bijoux/</loc>
@@ -33,15 +31,27 @@
   </url><url>
     <loc>http://localhost:1313/production/jouets/</loc>
   </url><url>
+    <loc>http://localhost:1313/production/dessins/mode/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/dessins/nus/</loc>
+  </url><url>
     <loc>http://localhost:1313/production/pastel-craie/</loc>
   </url><url>
     <loc>http://localhost:1313/portrait/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/dessins/portraits/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/dessins/posture/</loc>
   </url><url>
     <loc>http://localhost:1313/production/</loc>
   </url><url>
     <loc>http://localhost:1313/production/pyrogravure/</loc>
   </url><url>
+    <loc>http://localhost:1313/rue-de-babylone/</loc>
+  </url><url>
     <loc>http://localhost:1313/salons/</loc>
+  </url><url>
+    <loc>http://localhost:1313/production/dessins/sc%C3%A8ne-domestique/</loc>
   </url><url>
     <loc>http://localhost:1313/scenes-rurales/</loc>
   </url><url>

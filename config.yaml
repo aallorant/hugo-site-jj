@@ -1,32 +1,78 @@
-theme: "PaperMod"
-languageCode: "fr-fr"
+baseURL: "https://lesamisdejeannejozon.netlify.app/"
+languageCode: "fr"
 title: "Les Amis de Jeanne Jozon"
-defaultContentLanguage: fr
-summaryLength: 24
+theme: "hugo-theme-gallery"
+
+# Optional site-wide options
+params:
+  subtitle: "Sculptrice et artiste de l'Art nouveau"
+  description: "Galerie et biographie de Jeanne Jozon (1868 – 1946)"
+  copyright: "© Association Les Amis de Jeanne Jozon"
+  defaultTheme: "auto"  # light/dark auto
+  showBreadcrumbs: false
+  showMenu: true
 
 menu:
   main:
-    - name: Atelier
-      url: /atelier/
+    - name: "Accueil"
+      url: "/"
       weight: 1
-    - name: Biographie
-      url: /biographie/
+    - name: "Biographie"
+      url: "/biographie/"
       weight: 2
-    - name: Portrait
-      url: /portrait/
+    - name: "Atelier"
+      url: "/atelier/"
       weight: 3
-    - name: Production
-      url: /production/
+    - name: "Portraits"
+      url: "/portrait/"
       weight: 4
-    - name: Appartement rue de Babylone
-      url: /appartement-babylone/
+    - name: "Production"
+      url: "/production/"
       weight: 5
-    - name: Salons
-      url: /salons/
+      identifier: "production"
+    - name: "Sculptures"
+      url: "/production/sculpture/"
+      parent: "production"
       weight: 6
-    - name: Scènes rurales
-      url: /scenes-rurales/
+    - name: "Bijoux"
+      url: "/production/bijoux/"
+      parent: "production"
       weight: 7
-    - name: Contact
-      url: /contact/
+    - name: "Dessins"
+      url: "/production/dessins/"
+      parent: "production"
       weight: 8
+    - name: "Ébauches"
+      url: "/production/ebauches/"
+      parent: "production"
+      weight: 9
+    - name: "Jouets"
+      url: "/production/jouets/"
+      parent: "production"
+      weight: 10
+    - name: "Pastel & Craie"
+      url: "/production/pastel-craie/"
+      parent: "production"
+      weight: 11
+    - name: "Pyrogravures"
+      url: "/production/pyrogravure/"
+      parent: "production"
+      weight: 12
+    - name: "Objets décoratifs"
+      url: "/production/vases-buires-encriers-salieres/"
+      parent: "production"
+      weight: 13
+    - name: "Rue de Babylone"
+      url: "/rue-de-babylone/"
+      weight: 14
+    - name: "Salons"
+      url: "/salons/"
+      weight: 15
+    - name: "Contact"
+      url: "/contact/"
+      weight: 16
+
+
+params:
+  customCSS:
+    - "css/custom.css"
