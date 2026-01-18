@@ -8,22 +8,38 @@ media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  # =====================
+  # ÉVÉNEMENTS
+  # =====================
   - name: "evenements"
     label: "Événements"
     label_singular: "Événement"
     folder: "content/evenements"
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Date de l'événement", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
       - { label: "Lieu", name: "lieu", widget: "string", required: false }
       - { label: "Résumé", name: "summary", widget: "text", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Contenu", name: "body", widget: "markdown", required: false }
 
+  # =====================
+  # PAGES PRINCIPALES  
+  # =====================
   - name: "pages"
     label: "Pages"
     files:
+      - label: "Accueil"
+        name: "accueil"
+        file: "content/_index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+
       - label: "Biographie"
         name: "biographie"
         file: "content/biographie/index.md"
@@ -54,10 +70,230 @@ collections:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Contenu", name: "body", widget: "markdown" }
 
-      - label: "Accueil"
-        name: "accueil"
-        file: "content/_index.md"
+  # =====================
+  # GALERIES
+  # Images are uploaded to the same folder as index.md
+  # Hugo automatically displays them in the gallery
+  # =====================
+  - name: "galeries"
+    label: "Galeries"
+    files:
+      - label: "Atelier"
+        name: "atelier"
+        file: "content/atelier/index.md"
+        media_folder: ""
+        public_folder: ""
         fields:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Contenu", name: "body", widget: "markdown" }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Portraits"
+        name: "portrait"
+        file: "content/portrait/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Rue de Babylone"
+        name: "rue-de-babylone"
+        file: "content/rue-de-babylone/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Scènes rurales"
+        name: "scenes-rurales"
+        file: "content/scenes-rurales/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Sculptures"
+        name: "sculpture"
+        file: "content/production/sculpture/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Bijoux"
+        name: "bijoux"
+        file: "content/production/bijoux/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Ébauches"
+        name: "ebauches"
+        file: "content/production/ebauches/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Jouets"
+        name: "jouets"
+        file: "content/production/jouets/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Pastels et Craies"
+        name: "pastel-craie"
+        file: "content/production/pastel-craie/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Pyrogravures"
+        name: "pyrogravure"
+        file: "content/production/pyrogravure/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"
+
+      - label: "Objets décoratifs"
+        name: "vases"
+        file: "content/production/vases-buires-encriers-salieres/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images à la galerie"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"

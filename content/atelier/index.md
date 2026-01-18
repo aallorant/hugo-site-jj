@@ -1,13 +1,6 @@
 ---
-title: "Atelier"
-description: "Photographies de Jeanne Jozon dans ses ateliers"
-type: "gallery"
-resources:
-  - src: "*.jpg"
-  - src: "*.png"
-cover:
-  image: "atelier-babylone1897.jpg"
-cascade:
-  type: "gallery"
+title: "L'Atelier"
+description: "L'atelier de Jeanne Jozon, rue de Babylone à Paris"
 ---
-Images de Jeanne Jozon dans ses différents ateliers à Paris et à Bourges.
+
+Jeanne Jozon a installé son atelier rue de Babylone, derrière le Bon Marché. C'est là qu'elle a créé la majeure partie de son œuvre.

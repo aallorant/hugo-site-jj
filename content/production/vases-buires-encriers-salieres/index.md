@@ -1,8 +1,6 @@
 ---
-title: "Vases, Buires, Encriers et Salières"
-description: "Objets d’art décoratif réalisés par Jeanne Jozon"
-type: "gallery"
-resources:
-  - src: "*.jpg"
+title: "Objets décoratifs"
+description: "Vases, buires, encriers et salières"
 ---
-Cette série d’objets décoratifs illustre la délicatesse et la fonctionnalité du style Art nouveau chez Jeanne Jozon.
+
+Objets décoratifs créés par Jeanne Jozon : vases, buires, encriers et salières.

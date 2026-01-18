@@ -1,12 +1,6 @@
 ---
 title: "Portraits"
-description: "Autoportraits et photographies de Jeanne Jozon"
-type: "gallery"
-resources:
-  - src: "*.jpg"
-  - src: "*.png"
-cover:
-  image: "jeanne-jozon-4.jpg"
-cascade:
-  type: "gallery"
+description: "Photographies et autoportraits de Jeanne Jozon"
 ---
+
+Portraits de Jeanne Jozon à différentes périodes de sa vie.

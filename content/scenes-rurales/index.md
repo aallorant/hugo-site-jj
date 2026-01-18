@@ -1,7 +1,6 @@
 ---
 title: "Scènes rurales"
-summary: "Photographies et études"
-type: "gallery"
-resources:
-  - src: "*.jpg"
+description: "La vie paysanne en Berry et en Bretagne"
 ---
+
+Jeanne Jozon a documenté la vie rurale lors de ses séjours en Berry et en Bretagne.

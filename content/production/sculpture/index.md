@@ -1,8 +1,6 @@
 ---
 title: "Sculptures"
-description: "Œuvres sculptées de Jeanne Jozon (1895–1939)"
-type: "gallery"
-resources:
-  - src: "*.jpg"
+description: "Bronzes, plâtres et terres cuites"
 ---
-Ces sculptures témoignent du réalisme sensible et de la tendresse du regard que Jeanne Jozon porte sur le quotidien.
+
+Les sculptures de Jeanne Jozon témoignent de sa maîtrise technique et de son inspiration bretonne.

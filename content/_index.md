@@ -1,67 +1,59 @@
 ---
 title: "Les Amis de Jeanne Jozon"
-description: "Sculptrice et artiste de l'Art nouveau (1868–1946)"
+description: "Association dédiée à la mémoire de Jeanne Jozon, sculptrice et artiste Art nouveau (1868–1946)"
 type: "prose"
 ---
 
-# Jeanne Jozon
+![Jeanne Jozon dans son atelier](/images/atelier/jeanne-jozon-sculptant-dans-son-atelier.jpg)
 
-## Sculptrice et artiste Art nouveau (1868–1946)
+# Bienvenue
 
-Bienvenue sur le site de l'association **Les Amis de Jeanne Jozon**, dédié à la mémoire et à l'œuvre de cette artiste exceptionnelle.
-
----
-
-## Découvrir l'artiste
-
-| | |
-|---|---|
-| [**Biographie**](/biographie/) | La vie et le parcours de Jeanne Jozon |
-| [**Portraits**](/portrait/) | Photographies et autoportraits |
-| [**L'Atelier**](/atelier/) | Son atelier de la rue de Babylone |
-| [**Rue de Babylone**](/rue-de-babylone/) | L'appartement familial |
+**Les Amis de Jeanne Jozon** est une association dédiée à la mémoire et à la redécouverte de **Jeanne Jozon** (1868–1946), sculptrice et artiste de l'Art nouveau.
 
 ---
 
-## Explorer son œuvre
+## Qui était Jeanne Jozon ?
 
-### Sculptures et céramiques
+Formée à l'École des Beaux-Arts de Bourges puis à la prestigieuse Académie Julian à Paris, Jeanne Jozon a consacré sa vie à son art. Depuis son atelier de la **rue de Babylone**, elle a créé une œuvre diverse et prolifique : sculptures en bronze et en plâtre, céramiques pour les manufactures de Sèvres, bijoux Art nouveau, dessins, pastels et jouets artisanaux.
+
+**Artiste indépendante**, elle a assumé son célibat comme moyen de préserver sa liberté créatrice dans une société patriarcale. Elle a exposé régulièrement dans les salons parisiens de 1895 à 1939.
+
+[→ Lire sa biographie complète](/biographie/)
+
+---
+
+## Notre mission
+
+L'association a pour objectifs de :
+
+- **Faire connaître** l'œuvre de cette artiste oubliée
+- **Préserver** les archives familiales et les œuvres conservées  
+- **Organiser** des expositions et conférences
+- **Valoriser** le patrimoine artistique de l'Art nouveau français
+
+---
+
+## Événements à venir
+
+*Aucun événement programmé pour le moment.*
+
+[→ Voir tous les événements](/evenements/)
+
+---
+
+## Découvrir son œuvre
 
 | | |
 |---|---|
 | [**Sculptures**](/production/sculpture/) | Bronzes, plâtres, terres cuites |
-| [**Ébauches**](/production/ebauches/) | Études et maquettes préparatoires |
-| [**Objets décoratifs**](/production/vases-buires-encriers-salieres/) | Vases, buires, encriers |
-
-### Arts graphiques
-
-| | |
-|---|---|
-| [**Dessins**](/production/dessins/) | Croquis, études, portraits |
-| [**Pastels et craies**](/production/pastel-craie/) | Paysages et natures mortes |
-| [**Pyrogravures**](/production/pyrogravure/) | Œuvres sur bois |
-
-### Autres créations
-
-| | |
-|---|---|
 | [**Bijoux**](/production/bijoux/) | Créations Art nouveau |
-| [**Jouets**](/production/jouets/) | Jouets artisanaux (1914–1918) |
-| [**Scènes rurales**](/scenes-rurales/) | La vie paysanne en Berry et Bretagne |
+| [**Dessins**](/production/dessins/) | Croquis et études |
+| [**Pastels**](/production/pastel-craie/) | Paysages bretons |
+| [**L'Atelier**](/atelier/) | Rue de Babylone |
+| [**Portraits**](/portrait/) | Photos de l'artiste |
 
 ---
 
-## Carrière artistique
+## Nous contacter
 
-| | |
-|---|---|
-| [**Salons et expositions**](/salons/) | 45 ans d'expositions (1895–1939) |
-
----
-
-## L'Association
-
-| | |
-|---|---|
-| [**À propos**](/a-propos/) | Notre association |
-| [**Événements**](/evenements/) | Actualités et manifestations |
+[→ Contactez-nous](/contact/) · [→ À propos de l'association](/a-propos/)

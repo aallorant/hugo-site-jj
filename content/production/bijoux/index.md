@@ -1,9 +1,6 @@
 ---
 title: "Bijoux"
-description: "Créations ornementales et bijoux Art nouveau de Jeanne Jozon"
-type: "gallery"
-resources:
-  - src: "*.jpg"
+description: "Créations Art nouveau"
 ---
 
-Les bijoux de Jeanne Jozon associent délicatesse, naturalisme et modernité décorative.
+Bijoux en argent créés par Jeanne Jozon dans le style Art nouveau.
