@@ -2,7 +2,7 @@
 title: Événements
 description: Expositions, conférences et actualités
 type: prose
-date: 2026-04-16
+date: 2026-04-16T14:30:00.000+01:00
 lieu: 1 place Alphonse Deville 75006 PARIS
 summary: >-
   Ordre du jour :
