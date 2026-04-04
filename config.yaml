@@ -20,58 +20,60 @@ menu:
     - name: "Biographie"
       url: "/biographie/"
       weight: 2
+    - name: "Événements"
+      url: "/evenements/"
+      weight: 3
     - name: "Atelier"
       url: "/atelier/"
-      weight: 3
+      weight: 4
     - name: "Portraits"
       url: "/portrait/"
-      weight: 4
+      weight: 5
     - name: "Production"
       url: "/production/"
-      weight: 5
+      weight: 6
       identifier: "production"
     - name: "Sculptures"
       url: "/production/sculpture/"
       parent: "production"
-      weight: 6
+      weight: 7
     - name: "Bijoux"
       url: "/production/bijoux/"
       parent: "production"
-      weight: 7
+      weight: 8
     - name: "Dessins"
       url: "/production/dessins/"
       parent: "production"
-      weight: 8
+      weight: 9
     - name: "Ébauches"
       url: "/production/ebauches/"
       parent: "production"
-      weight: 9
+      weight: 10
     - name: "Jouets"
       url: "/production/jouets/"
       parent: "production"
-      weight: 10
+      weight: 11
     - name: "Pastel & Craie"
       url: "/production/pastel-craie/"
       parent: "production"
-      weight: 11
+      weight: 12
     - name: "Pyrogravures"
       url: "/production/pyrogravure/"
       parent: "production"
-      weight: 12
+      weight: 13
     - name: "Objets décoratifs"
       url: "/production/vases-buires-encriers-salieres/"
       parent: "production"
-      weight: 13
+      weight: 14
     - name: "Rue de Babylone"
       url: "/rue-de-babylone/"
-      weight: 14
+      weight: 15
     - name: "Salons"
       url: "/salons/"
-      weight: 15
+      weight: 16
     - name: "Contact"
       url: "/contact/"
-      weight: 16
-
+      weight: 17
 
 params:
   customCSS:
