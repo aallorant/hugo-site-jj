@@ -20,7 +20,12 @@ collections:
     summary: "{{title}} — {{date}}"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date de l'événement", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY" }
+      - label: "Date de l'événement"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD/MM/YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DDTHH:mm:00.000Z"
       - { label: "Lieu", name: "lieu", widget: "string", required: false }
       - { label: "Résumé", name: "summary", widget: "text", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
@@ -72,8 +77,6 @@ collections:
 
   # =====================
   # GALERIES
-  # Images are uploaded to the same folder as index.md
-  # Hugo automatically displays them in the gallery
   # =====================
   - name: "galeries"
     label: "Galeries"
@@ -92,7 +95,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -112,7 +115,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -132,7 +135,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -152,7 +155,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -172,7 +175,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -192,7 +195,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -212,7 +215,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -232,7 +235,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -252,7 +255,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -272,7 +275,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
@@ -292,7 +295,7 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoutez de nouvelles images ici. Elles apparaîtront dans la galerie."
+            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
             field:
               label: "Image"
               name: "image"
