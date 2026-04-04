@@ -1,0 +1,42 @@
+{{ define "main" }}
+<article class="prose">
+  <h1>{{ .Title }}</h1>
+  
+  {{ .Content }}
+
+  <h2>Événements à venir</h2>
+  
+  {{ $upcoming := where .Pages "Date" "ge" now }}
+  {{ if $upcoming }}
+    {{ range $upcoming.ByDate }}
+    <div class="event-item" style="margin-bottom: 2rem; padding: 1rem; border-left: 3px solid #c07c3a;">
+      <h3 style="margin: 0;">{{ .Title }}</h3>
+      <p style="color: #666; margin: 0.5rem 0;">
+        📅 {{ .Date.Format "02/01/2006" }}
+        {{ with .Params.lieu }} · 📍 {{ . }}{{ end }}
+      </p>
+      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+      {{ if .Content }}<a href="{{ .RelPermalink }}">En savoir plus →</a>{{ end }}
+    </div>
+    {{ end }}
+  {{ else }}
+    <p><em>Aucun événement à venir pour le moment.</em></p>
+  {{ end }}
+
+  {{ $past := where .Pages "Date" "lt" now }}
+  {{ if $past }}
+  <h2>Événements passés</h2>
+    {{ range $past.ByDate.Reverse }}
+    <div class="event-item" style="margin-bottom: 2rem; padding: 1rem; border-left: 3px solid #999; opacity: 0.8;">
+      <h3 style="margin: 0;">{{ .Title }}</h3>
+      <p style="color: #666; margin: 0.5rem 0;">
+        📅 {{ .Date.Format "02/01/2006" }}
+        {{ with .Params.lieu }} · 📍 {{ . }}{{ end }}
+      </p>
+      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+    </div>
+    {{ end }}
+  {{ end }}
+
+</article>
+{{ end }}
