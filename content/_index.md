@@ -1,7 +1,9 @@
 ---
-title: "Les Amis de Jeanne Jozon"
-description: "Association dédiée à la mémoire de Jeanne Jozon, sculptrice et artiste Art nouveau (1868–1946)"
-type: "prose"
+title: Les Amis de Jeanne Jozon
+description: Association dédiée à faire redécouvrir la vie, la diversité et
+  l'actualité de l'oeuvre de Jeanne Jozon, sculptrice et artiste Art nouveau
+  (1868–1946)
+type: prose
 ---
 
 ![Jeanne Jozon dans son atelier](/images/atelier/jeanne-jozon-sculptant-dans-son-atelier.jpg)
