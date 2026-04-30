@@ -1,0 +1,59 @@
+/* Design tokens for Les Amis de Jeanne Jozon.
+   One accent (bronze patina) — the only color intrinsic to the artwork.
+   Fonts loaded via Google Fonts during dev; commit 17 will self-host woff2. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Tenor+Sans&display=swap');
+
+:root {
+  /* ---------- Color ---------- */
+  --color-paper:       #F8F4ED;  /* page background — warm ivory */
+  --color-paper-deep:  #EFE7D9;  /* card / section backgrounds */
+  --color-ink:         #1F1A14;  /* primary text — dark warm brown, reads as ink */
+  --color-ink-muted:   #6B5E51;  /* metadata, captions, secondary text */
+  --color-bronze:      #8B6F47;  /* the single accent — patina of bronze sculpture */
+  --color-bronze-deep: #6F5836;  /* hover state for bronze links */
+  --color-rule:        #D8CFC2;  /* hairline dividers — paper-aged */
+  --color-overlay:     rgba(31, 26, 20, 0.55);  /* hero gradient */
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
+  --font-body:    'Lora', Georgia, 'Times New Roman', serif;
+  --font-eyebrow: 'Tenor Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Display sizes (h1, hero) — fluid between mobile and desktop */
+  --size-hero:    clamp(2.5rem, 6vw + 1rem, 6rem);   /* 40px → 96px */
+  --size-h1:      clamp(2rem, 3vw + 1rem, 3.5rem);    /* 32px → 56px */
+  --size-h2:      clamp(1.625rem, 1.5vw + 1rem, 2.5rem); /* 26px → 40px */
+  --size-h3:      clamp(1.25rem, 0.5vw + 1rem, 1.625rem); /* 20px → 26px */
+
+  /* Body and small */
+  --size-body:    1.0625rem;     /* 17px standard prose */
+  --size-body-lg: 1.125rem;      /* 18px long-form prose */
+  --size-small:   0.875rem;      /* 14px */
+  --size-meta:    0.75rem;       /* 12px metadata, eyebrow at small scale */
+
+  --line-display: 1.1;
+  --line-body:    1.65;
+  --line-tight:   1.25;
+
+  --tracking-eyebrow: 0.12em;
+  --tracking-hero:    -0.01em;
+
+  /* ---------- Spacing scale (8px base) ---------- */
+  --space-1: 0.5rem;    /* 8 */
+  --space-2: 1rem;      /* 16 */
+  --space-3: 1.5rem;    /* 24 */
+  --space-4: 2rem;      /* 32 */
+  --space-5: 3rem;      /* 48 */
+  --space-6: 5rem;      /* 80 */
+  --space-7: 8rem;      /* 128 */
+
+  /* ---------- Layout ---------- */
+  --width-prose:    36rem;     /* long-form text max-width */
+  --width-content:  72rem;     /* main content container */
+  --width-wide:     90rem;     /* full-bleed sections (gallery hero) */
+
+  /* ---------- Motion ---------- */
+  --transition-quick: 150ms ease-out;
+  --transition-slow:  400ms ease-out;
+}
