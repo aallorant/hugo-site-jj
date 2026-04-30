@@ -1,0 +1,29 @@
+{{- $lang := .Site.Language.Lang | default "fr" -}}
+<!DOCTYPE html>
+<html lang="{{ $lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}{{ end }}</title>
+  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+
+  {{/* Netlify Identity — required for DecapCMS auth at /admin/. Do not remove. */}}
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+
+  {{ block "head" . }}{{ end }}
+</head>
+<body>
+  {{ block "main" . }}{{ end }}
+</body>
+</html>
