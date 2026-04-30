@@ -1,0 +1,51 @@
+# Site chrome
+site_subtitle: "Sculptrice · 1868–1946"
+hero_eyebrow: "Association des Amis de"
+
+# Homepage section eyebrows
+section_timeline: "Une vie en quelques dates"
+section_works: "Quatre univers"
+section_works_intro: "L'œuvre de Jeanne Jozon, par médium"
+section_events: "Actualités"
+section_association: "L'Association"
+
+# Events
+events_upcoming: "À venir"
+events_past: "Passés"
+events_none: "Aucun événement à venir pour le moment."
+
+# Works categories
+works_sculpture: "Sculpture"
+works_sculpture_caption: "Bronzes, plâtres, terres cuites"
+works_jewelry: "Bijoux"
+works_jewelry_caption: "Créations Art nouveau"
+works_paper: "Œuvres sur papier"
+works_paper_caption: "Dessins, ébauches, pastels"
+works_decorative: "Arts décoratifs"
+works_decorative_caption: "Pyrogravure, jouets, objets"
+
+# Atelier (merged page) anchor sections
+atelier_portraits: "Portraits de l'artiste"
+atelier_studio: "L'atelier rue de Babylone"
+atelier_quartier: "Le quartier"
+
+# Generic UI
+read_more: "En savoir plus"
+back: "Retour"
+back_to_events: "Retour aux événements"
+back_to_works: "Retour à l'œuvre"
+discover_works: "Découvrir l'œuvre"
+date_format: "2 January 2006"
+date_format_short: "02/01/2006"
+
+# Banner shown on FR page reached via /en/ when no EN translation exists
+missing_translation_fr: "Cette page n'est disponible qu'en français pour le moment."
+missing_translation_en: "This page is currently available in French only — English translation in progress."
+
+# Footer
+footer_contact: "Contact"
+footer_about: "À propos"
+
+# Language switcher
+lang_fr: "FR"
+lang_en: "EN"

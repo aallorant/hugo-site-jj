@@ -1,18 +1,45 @@
 baseURL: "https://lesamisdejeannejozon.netlify.app/"
-languageCode: "fr"
 title: "Les Amis de Jeanne Jozon"
 
-params:
-  subtitle: "Sculptrice et artiste de l'Art nouveau"
-  description: "Galerie et biographie de Jeanne Jozon (1868 – 1946)"
-  copyright: "© Association Les Amis de Jeanne Jozon"
+defaultContentLanguage: "fr"
+defaultContentLanguageInSubdir: false
 
-menu:
-  main:
-    - { name: "Accueil",     url: "/",            weight: 1 }
-    - { name: "Biographie",  url: "/biographie/", weight: 2 }
-    - { name: "Œuvre",       url: "/production/", weight: 3 }
-    - { name: "Atelier",     url: "/atelier/",    weight: 4 }
-    - { name: "Salons",      url: "/salons/",     weight: 5 }
-    - { name: "Événements",  url: "/evenements/", weight: 6 }
-    - { name: "À propos",    url: "/a-propos/",   weight: 7 }
+# Render `.en.md` siblings under /en/ ; FR stays at root.
+languages:
+  fr:
+    languageName: "Français"
+    languageCode: "fr-FR"
+    weight: 1
+    title: "Les Amis de Jeanne Jozon"
+    params:
+      subtitle: "Sculptrice et artiste de l'Art nouveau"
+      description: "Galerie et biographie de Jeanne Jozon (1868 – 1946)"
+      copyright: "© Association Les Amis de Jeanne Jozon"
+    menu:
+      main:
+        - { name: "Accueil",     url: "/",            weight: 1 }
+        - { name: "Biographie",  url: "/biographie/", weight: 2 }
+        - { name: "Œuvre",       url: "/production/", weight: 3 }
+        - { name: "Atelier",     url: "/atelier/",    weight: 4 }
+        - { name: "Salons",      url: "/salons/",     weight: 5 }
+        - { name: "Événements",  url: "/evenements/", weight: 6 }
+        - { name: "À propos",    url: "/a-propos/",   weight: 7 }
+
+  en:
+    languageName: "English"
+    languageCode: "en-US"
+    weight: 2
+    title: "Friends of Jeanne Jozon"
+    params:
+      subtitle: "Sculptor and Art Nouveau artist"
+      description: "Gallery and biography of Jeanne Jozon (1868–1946)"
+      copyright: "© Association Les Amis de Jeanne Jozon"
+    menu:
+      main:
+        - { name: "Home",       url: "/en/",            weight: 1 }
+        - { name: "Biography",  url: "/en/biography/",  weight: 2 }
+        - { name: "Works",      url: "/en/works/",      weight: 3 }
+        - { name: "Studio",     url: "/en/studio/",     weight: 4 }
+        - { name: "Salons",     url: "/en/salons/",     weight: 5 }
+        - { name: "News",       url: "/en/news/",       weight: 6 }
+        - { name: "About",      url: "/en/about/",      weight: 7 }
