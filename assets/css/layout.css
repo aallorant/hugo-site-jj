@@ -1,0 +1,22 @@
+/* Site shell: header, footer, container widths.
+   Components specific to a single page live in pages/*.css. */
+
+.container {
+  width: 100%;
+  max-width: var(--width-content);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+@media (min-width: 768px) {
+  .container { padding-inline: var(--space-4); }
+}
+@media (min-width: 1200px) {
+  .container { padding-inline: var(--space-5); }
+}
+
+.container--prose { max-width: calc(var(--width-prose) + 4rem); }
+.container--wide  { max-width: var(--width-wide); }
+
+main { min-height: 60vh; }
+section { padding-block: var(--space-6); }
+section.section--tight { padding-block: var(--space-5); }
