@@ -1,0 +1,87 @@
+{{- /* Aggregation page — combines images from multiple source bundles
+       into anchor sections on a single page. Used by Œuvres-sur-papier
+       and Arts-décoratifs to honor the Phase 2 IA cull (8 production
+       subsections → 4 categories) while preserving every source folder
+       on disk. */ -}}
+
+{{- $heroImage := .Params.hero_image -}}
+{{- $heroAlt := .Params.hero_alt | default "" -}}
+{{- $imgPattern := "*.{jpg,jpeg,png,gif,webp,JPG,JPEG,PNG,WEBP}" -}}
+
+<section class="page-hero page-hero--prose">
+  {{ if $heroImage }}
+  <div class="page-hero__image">
+    <img src="{{ $heroImage }}" alt="{{ $heroAlt }}" loading="eager" fetchpriority="high">
+  </div>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  {{ end }}
+  <div class="page-hero__content container">
+    {{ with .Params.medium }}
+    <span class="eyebrow">{{ . }}</span>
+    {{ end }}
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-hero__lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+{{ with .Content }}
+<section class="aggregation-intro container container--prose">
+  <div class="prose">{{ . }}</div>
+</section>
+{{ end }}
+
+{{/* Anchor nav — one link per aggregated section */}}
+{{ if gt (len .Params.aggregate) 1 }}
+<nav class="atelier-anchors container" aria-label="Sections">
+  {{- range .Params.aggregate -}}
+    {{- $anchor := anchorize .label_key -}}
+    <a href="#{{ $anchor }}" class="atelier-anchors__link">{{ .label_key }}</a>
+  {{- end -}}
+</nav>
+{{ end }}
+
+{{/* One section per aggregate source bundle */}}
+{{- range $idx, $entry := .Params.aggregate -}}
+  {{- $page := $.Site.GetPage $entry.path -}}
+  {{- if $page -}}
+    {{- $anchor := anchorize $entry.label_key -}}
+    {{- $images := $page.Resources.Match $imgPattern -}}
+    {{- /* If the source bundle is itself a section with sub-bundles,
+           collect images from sub-pages too (e.g., dessins/Mode, dessins/Nus). */ -}}
+    {{- if $entry.recurse -}}
+      {{- range $page.Pages -}}
+        {{- $images = $images | append (.Resources.Match $imgPattern) -}}
+      {{- end -}}
+    {{- end -}}
+<section id="{{ $anchor }}" class="atelier-section">
+  <div class="container">
+    <header class="atelier-section__header">
+      <span class="eyebrow eyebrow--bronze">{{ $entry.label_key }}</span>
+      <hr class="rule rule--bronze atelier-section__rule">
+    </header>
+    {{ with $page.Content }}
+    <div class="atelier-section__intro container container--prose">
+      <div class="prose">{{ . }}</div>
+    </div>
+    {{ end }}
+    {{ if $images }}
+    <div class="container container--wide">
+      <div class="gallery-grid">
+        {{- range $images }}
+        {{- $caption := .Title | default (path.BaseName .Name) -}}
+        <figure class="gallery-grid__item">
+          <a href="{{ .RelPermalink }}" class="gallery-grid__link"
+             data-lightbox data-caption="{{ $caption }}">
+            <img src="{{ .RelPermalink }}" alt="{{ $caption }}" loading="lazy">
+          </a>
+        </figure>
+        {{- end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+  {{- end -}}
+{{- end -}}
+
+{{ partial "lightbox.html" . }}
