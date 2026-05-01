@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{- $heroImage := .Params.hero_image | default "/images/atelier/jeanne-sculptant-1897-2.jpg" -}}
+{{- $heroAlt := .Params.hero_alt | default "" -}}
+
+{{/* ---------- Hero ---------- */}}
+<section class="page-hero page-hero--prose">
+  <div class="page-hero__image">
+    <img src="{{ $heroImage }}" alt="{{ $heroAlt }}" loading="eager" fetchpriority="high">
+  </div>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="page-hero__content container">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-hero__lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+{{/* ---------- Intro ---------- */}}
+{{ with .Content }}
+<section class="oeuvre-intro container container--prose">
+  <div class="prose">{{ . }}</div>
+</section>
+{{ end }}
+
+{{/* ---------- 4-card category grid ---------- */}}
+{{- $cards := slice
+  (dict "key" "sculpture"
+        "url" (cond (eq .Lang "fr") "/production/sculpture/" "/en/works/sculpture/")
+        "image" "/production/sculpture/A-la-fontaine-1.jpg"
+        "alt" "À la fontaine, Jeanne Jozon")
+  (dict "key" "jewelry"
+        "url" (cond (eq .Lang "fr") "/production/bijoux/" "/en/works/jewelry/")
+        "image" "/production/bijoux/bijoux-1.jpg"
+        "alt" "Bijou Art nouveau, Jeanne Jozon")
+  (dict "key" "paper"
+        "url" (cond (eq .Lang "fr") "/production/dessins/" "/en/works/works-on-paper/")
+        "image" "/production/pastel-craie/Chiny-1-(1933).jpg"
+        "alt" "Pastel, Jeanne Jozon")
+  (dict "key" "decorative"
+        "url" (cond (eq .Lang "fr") "/production/vases-buires-encriers-salieres/" "/en/works/decorative-arts/")
+        "image" "/production/vases-buires-encriers-salieres/Aurore-1.jpg"
+        "alt" "Vase, Jeanne Jozon")
+-}}
+<section class="oeuvre-grid-section container">
+  <div class="oeuvre-grid">
+    {{- range $cards }}
+    <a class="oeuvre-card" href="{{ .url }}">
+      <figure class="oeuvre-card__figure">
+        <img src="{{ .image }}" alt="{{ .alt }}" loading="lazy">
+      </figure>
+      <div class="oeuvre-card__body">
+        <h2 class="oeuvre-card__title">{{ i18n (printf "works_%s" .key) }}</h2>
+        <p class="oeuvre-card__caption">{{ i18n (printf "works_%s_caption" .key) }}</p>
+      </div>
+    </a>
+    {{- end }}
+  </div>
+</section>
+
+{{ end }}

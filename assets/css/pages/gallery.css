@@ -1,7 +1,88 @@
 /* ============================================================
    Gallery — single pages whose bundle has many image resources.
    Salon-hang masonry via CSS columns. Vanilla-JS lightbox.
+   Also: Œuvre parent index (4-card category grid).
    ============================================================ */
+
+/* ---------- Œuvre parent index (4-card grid, larger than homepage cards) ---------- */
+.oeuvre-intro {
+  padding-block: var(--space-5) var(--space-3);
+  text-align: center;
+}
+.oeuvre-grid-section { padding-block: var(--space-4) var(--space-7); }
+.oeuvre-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+@media (max-width: 720px) {
+  .oeuvre-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+.oeuvre-card {
+  display: block;
+  text-decoration: none;
+  border: 0 !important;
+  color: inherit;
+  transition: transform var(--transition-slow);
+}
+.oeuvre-card:hover { transform: translateY(-3px); }
+.oeuvre-card__figure {
+  margin: 0;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  background: var(--color-paper-deep);
+  border: 1px solid var(--color-rule);
+  position: relative;
+}
+.oeuvre-card__figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 70%, rgba(31,26,20,0.15));
+  pointer-events: none;
+}
+.oeuvre-card__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.95);
+  transition: transform var(--transition-slow), filter var(--transition-slow);
+}
+.oeuvre-card:hover .oeuvre-card__figure img {
+  transform: scale(1.03);
+  filter: saturate(1);
+}
+.oeuvre-card__body {
+  padding-top: var(--space-3);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-3);
+  align-items: baseline;
+  border-bottom: 1px solid var(--color-rule);
+  padding-bottom: var(--space-2);
+}
+.oeuvre-card__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
+  font-size: clamp(1.5rem, 1.5vw + 0.75rem, 2rem);
+  margin: 0;
+  letter-spacing: var(--tracking-hero);
+}
+.oeuvre-card__caption {
+  font-family: var(--font-eyebrow);
+  font-size: var(--size-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-muted);
+  margin: 0;
+  text-align: right;
+}
+@media (max-width: 720px) {
+  .oeuvre-card__body { grid-template-columns: 1fr; }
+  .oeuvre-card__caption { text-align: left; }
+}
+
 
 /* ---------- Hero (40vh, half the homepage) ---------- */
 .gallery__hero {
