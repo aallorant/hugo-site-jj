@@ -1,8 +1,6 @@
 /* Design tokens for Les Amis de Jeanne Jozon.
    One accent (bronze patina) — the only color intrinsic to the artwork.
-   Fonts loaded via Google Fonts during dev; commit 17 will self-host woff2. */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Tenor+Sans&display=swap');
+   Fonts self-hosted from /static/fonts/ — see fonts.css. */
 
 :root {
   /* ---------- Color ---------- */

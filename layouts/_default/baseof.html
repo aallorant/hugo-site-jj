@@ -1,4 +1,18 @@
-{{- $css := resources.Get "css/main.css" | resources.ExecuteAsTemplate "css/main.css" . | minify | fingerprint -}}
+{{- /* CSS bundle — concat layered files into one fingerprinted asset.
+       (Plain @import in main.css won't work because Hugo doesn't publish
+       individual /assets/css/*.css files; concat is the right tool.) */ -}}
+{{- $cssParts := slice
+  (resources.Get "css/fonts.css")
+  (resources.Get "css/tokens.css")
+  (resources.Get "css/base.css")
+  (resources.Get "css/layout.css")
+  (resources.Get "css/components.css")
+  (resources.Get "css/pages/home.css")
+  (resources.Get "css/pages/gallery.css")
+  (resources.Get "css/pages/events.css")
+  (resources.Get "css/pages/prose.css")
+-}}
+{{- $css := $cssParts | resources.Concat "css/bundle.css" | minify | fingerprint -}}
 {{- $lang := .Site.Language.Lang | default "fr" -}}
 <!DOCTYPE html>
 <html lang="{{ $lang }}">
