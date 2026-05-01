@@ -1,0 +1,59 @@
+{{- /*
+  Gallery partial — salon-hang masonry for any page bundle with many images.
+  Args:
+    .page    — the page (for title, content, frontmatter)
+    .images  — Resource collection of images to render
+*/ -}}
+{{- $page := .page -}}
+{{- $images := .images -}}
+
+{{- /* Featured hero image: use frontmatter `featured_image` if set,
+       otherwise first image in the bundle. */ -}}
+{{- $featured := false -}}
+{{- with $page.Params.featured_image -}}
+  {{- $featured = $page.Resources.GetMatch . -}}
+{{- end -}}
+{{- if not $featured -}}
+  {{- $featured = index $images 0 -}}
+{{- end -}}
+
+<article class="gallery">
+  <header class="gallery__hero">
+    {{ if $featured }}
+    <div class="gallery__hero-image">
+      <img src="{{ $featured.RelPermalink }}" alt="" loading="eager" fetchpriority="high">
+    </div>
+    <div class="gallery__hero-overlay" aria-hidden="true"></div>
+    {{ end }}
+    <div class="gallery__hero-content container">
+      {{ with $page.Params.medium }}
+      <span class="eyebrow">{{ . }}</span>
+      {{ end }}
+      <h1 class="gallery__title">{{ $page.Title }}</h1>
+      {{ with $page.Description }}<p class="gallery__lede">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+
+  {{ with $page.Content }}
+  <div class="gallery__intro container container--prose">
+    <div class="prose">{{ . }}</div>
+  </div>
+  {{ end }}
+
+  <section class="gallery__grid-wrap container container--wide" aria-label="{{ $page.Title }}">
+    <div class="gallery-grid" data-lightbox-grid>
+      {{ range $images }}
+      {{- $caption := .Title | default (path.BaseName .Name) -}}
+      <figure class="gallery-grid__item">
+        <a href="{{ .RelPermalink }}" class="gallery-grid__link"
+           data-lightbox
+           data-caption="{{ $caption }}">
+          <img src="{{ .RelPermalink }}" alt="{{ $caption }}" loading="lazy">
+        </a>
+      </figure>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ partial "lightbox.html" . }}
+</article>

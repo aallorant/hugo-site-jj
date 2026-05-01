@@ -1,6 +1,24 @@
 {{ define "main" }}
-<article>
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-</article>
+{{- /* Auto-detect: if the page bundle has many image resources, render the
+       gallery template; otherwise render prose. Threshold of 6 keeps
+       biographie (4 inline images) on the prose path while sending the
+       large galleries (sculpture, atelier, etc.) to salon-hang. */ -}}
+{{- $images := .Resources.Match "*.{jpg,jpeg,png,gif,webp,JPG,JPEG,PNG,JPG,WEBP}" -}}
+{{- $isGallery := or (eq .Params.type "gallery") (gt (len $images) 6) -}}
+
+{{- if $isGallery -}}
+  {{ partial "gallery.html" (dict "page" . "images" $images) }}
+{{- else -}}
+  <article class="single">
+    <header class="single__header container container--prose">
+      <h1 class="single__title">{{ .Title }}</h1>
+      {{ with .Description }}<p class="single__lede">{{ . }}</p>{{ end }}
+    </header>
+    <div class="container container--prose">
+      <div class="prose">
+        {{ .Content }}
+      </div>
+    </div>
+  </article>
+{{- end -}}
 {{ end }}

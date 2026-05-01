@@ -1,0 +1,69 @@
+{{- /* Lightbox markup + vanilla JS. Loaded once per gallery page. */ -}}
+<dialog class="lightbox" id="lightbox" aria-label="{{ if eq .Lang "fr" }}Visualiseur d'image{{ else }}Image viewer{{ end }}">
+  <button class="lightbox__close" type="button" data-lightbox-close
+          aria-label="{{ if eq .Lang "fr" }}Fermer{{ else }}Close{{ end }}">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev
+          aria-label="{{ if eq .Lang "fr" }}Précédent{{ else }}Previous{{ end }}">‹</button>
+  <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next
+          aria-label="{{ if eq .Lang "fr" }}Suivant{{ else }}Next{{ end }}">›</button>
+  <figure class="lightbox__figure">
+    <img class="lightbox__image" alt="">
+    <figcaption class="lightbox__caption"></figcaption>
+  </figure>
+</dialog>
+<script>
+(function () {
+  var grid = document.querySelector('[data-lightbox-grid]');
+  var dialog = document.getElementById('lightbox');
+  if (!grid || !dialog) return;
+
+  var links = Array.prototype.slice.call(grid.querySelectorAll('[data-lightbox]'));
+  var img = dialog.querySelector('.lightbox__image');
+  var caption = dialog.querySelector('.lightbox__caption');
+  var current = 0;
+
+  function open(i) {
+    current = (i + links.length) % links.length;
+    var link = links[current];
+    img.src = link.getAttribute('href');
+    img.alt = link.getAttribute('data-caption') || '';
+    caption.textContent = link.getAttribute('data-caption') || '';
+    if (typeof dialog.showModal === 'function') {
+      if (!dialog.open) dialog.showModal();
+    } else {
+      dialog.setAttribute('open', '');
+    }
+    document.body.classList.add('lightbox-open');
+  }
+  function close() {
+    if (typeof dialog.close === 'function' && dialog.open) {
+      dialog.close();
+    } else {
+      dialog.removeAttribute('open');
+    }
+    img.src = '';
+    document.body.classList.remove('lightbox-open');
+  }
+
+  links.forEach(function (link, i) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      open(i);
+    });
+  });
+  dialog.querySelector('[data-lightbox-close]').addEventListener('click', close);
+  dialog.querySelector('[data-lightbox-prev]').addEventListener('click', function () { open(current - 1); });
+  dialog.querySelector('[data-lightbox-next]').addEventListener('click', function () { open(current + 1); });
+  dialog.addEventListener('click', function (e) {
+    // Click on backdrop (the dialog itself, not its children) closes.
+    if (e.target === dialog) close();
+  });
+  dialog.addEventListener('cancel', function (e) { e.preventDefault(); close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!dialog.hasAttribute('open')) return;
+    if (e.key === 'ArrowLeft')  open(current - 1);
+    if (e.key === 'ArrowRight') open(current + 1);
+    if (e.key === 'Escape')     close();
+  });
+})();
+</script>
