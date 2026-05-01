@@ -34,7 +34,7 @@
 {{ if gt (len .Params.aggregate) 1 }}
 <nav class="atelier-anchors container" aria-label="Sections">
   {{- range .Params.aggregate -}}
-    {{- $anchor := anchorize .label_key -}}
+    {{- $anchor := .anchor | default (anchorize .label_key) -}}
     <a href="#{{ $anchor }}" class="atelier-anchors__link">{{ .label_key }}</a>
   {{- end -}}
 </nav>
@@ -44,7 +44,7 @@
 {{- range $idx, $entry := .Params.aggregate -}}
   {{- $page := $.Site.GetPage $entry.path -}}
   {{- if $page -}}
-    {{- $anchor := anchorize $entry.label_key -}}
+    {{- $anchor := $entry.anchor | default (anchorize $entry.label_key) -}}
     {{- $images := $page.Resources.Match $imgPattern -}}
     {{- /* If the source bundle is itself a section with sub-bundles,
            collect images from sub-pages too (e.g., dessins/Mode, dessins/Nus). */ -}}

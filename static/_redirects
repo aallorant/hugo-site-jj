@@ -1,0 +1,21 @@
+# Netlify redirects file. Keys: source, destination, status, options.
+# `301!` is a force redirect (overrides existing static file matches).
+
+# ---- Atelier merge: /portrait/ + /rue-de-babylone/ folded into /atelier/ ----
+/portrait/                /atelier/#portraits   301!
+/rue-de-babylone/         /atelier/#quartier    301!
+
+# ---- Œuvres sur papier aggregation ----
+/scenes-rurales/                  /production/oeuvres-sur-papier/#scenes-rurales   301!
+/production/dessins/              /production/oeuvres-sur-papier/#dessins          301!
+/production/ebauches/             /production/oeuvres-sur-papier/#ebauches         301!
+/production/pastel-craie/         /production/oeuvres-sur-papier/#pastels          301!
+
+# ---- Arts décoratifs aggregation ----
+/production/pyrogravure/                       /production/arts-decoratifs/#pyrogravures   301!
+/production/jouets/                            /production/arts-decoratifs/#jouets         301!
+/production/vases-buires-encriers-salieres/    /production/arts-decoratifs/#objets         301!
+
+# Note: deeper URLs under these source folders (e.g. /portrait/Auto-portrait.jpg
+# image asset, /production/dessins/Mode/ sub-bundle gallery) keep resolving as
+# before — the wildcards above only match the section index URLs.
