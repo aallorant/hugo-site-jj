@@ -1,0 +1,68 @@
+{{- $home := .Site.Home -}}
+<header class="site-header" data-on-hero="{{ if .IsHome }}true{{ else }}false{{ end }}">
+  <a class="skip-link" href="#main">{{ if eq .Lang "fr" }}Aller au contenu{{ else }}Skip to content{{ end }}</a>
+
+  <div class="site-header__inner container">
+    <a class="site-header__brand" href="{{ $home.RelPermalink }}" aria-label="{{ .Site.Title }}">
+      <span class="site-header__name">Jeanne Jozon</span>
+      <span class="site-header__sub">{{ .Site.Params.subtitle }}</span>
+    </a>
+
+    <button class="site-header__toggle" type="button"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+            data-nav-toggle>
+      <span class="site-header__toggle-bar" aria-hidden="true"></span>
+      <span class="site-header__toggle-bar" aria-hidden="true"></span>
+      <span class="site-header__toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">{{ if eq .Lang "fr" }}Menu{{ else }}Menu{{ end }}</span>
+    </button>
+
+    <nav id="primary-nav" class="site-nav" aria-label="{{ if eq .Lang "fr" }}Navigation principale{{ else }}Primary navigation{{ end }}">
+      <ul class="site-nav__list">
+        {{- range .Site.Menus.main -}}
+          {{- $url := .URL -}}
+          {{- $active := or (eq $.RelPermalink $url) (and (ne $url "/") (ne $url "/en/") (hasPrefix $.RelPermalink $url)) -}}
+          <li class="site-nav__item">
+            <a href="{{ $url }}" class="site-nav__link{{ if $active }} is-active{{ end }}">{{ .Name }}</a>
+          </li>
+        {{- end -}}
+      </ul>
+    </nav>
+
+    {{ partial "language-switcher.html" . }}
+  </div>
+</header>
+
+{{ partial "missing-translation-banner.html" . }}
+
+<script>
+  // Tiny header behaviour: nav toggle + scroll-aware "on hero" class.
+  (function () {
+    var header = document.querySelector('.site-header');
+    var toggle = document.querySelector('[data-nav-toggle]');
+    var nav = document.getElementById('primary-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        nav.classList.toggle('is-open', !open);
+        document.body.classList.toggle('nav-open', !open);
+      });
+    }
+    // When the header sits over a 100vh hero (homepage), it's transparent
+    // until the user scrolls past ~80vh, at which point ivory chrome appears.
+    if (header && header.dataset.onHero === 'true') {
+      var threshold = window.innerHeight * 0.8;
+      var update = function () {
+        header.classList.toggle('is-scrolled', window.scrollY > threshold);
+      };
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', function () {
+        threshold = window.innerHeight * 0.8;
+        update();
+      });
+    }
+  })();
+</script>

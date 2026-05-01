@@ -1,0 +1,31 @@
+{{- /*
+  Language switcher: FR · EN.
+
+  Behavior per Phase 3 refinement #3 (soft bilingual launch):
+  - The switcher is always visible in the header.
+  - Clicking the *current* language is a no-op (links to current page).
+  - Clicking the *other* language:
+      - if a translation of the current page exists → links to it
+      - if not → links back to the current page (a deliberate no-op).
+  - This means first-time FR visitors see "FR · EN" but clicking EN does
+    nothing visible until .en.md siblings get filled. Once the user fills
+    biographie.en.md and a-propos.en.md (and removes draft:true), those
+    pages' EN buttons activate.
+*/ -}}
+{{- $page := . -}}
+<nav class="lang-switch" aria-label="{{ if eq .Lang "fr" }}Choix de la langue{{ else }}Language{{ end }}">
+  {{- range .Sites -}}
+    {{- $lang := .Language.Lang -}}
+    {{- $isCurrent := eq $lang $page.Lang -}}
+    {{- $href := $page.RelPermalink -}}
+    {{- if not $isCurrent -}}
+      {{- range $page.Translations -}}
+        {{- if eq .Lang $lang -}}{{- $href = .RelPermalink -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
+    <a href="{{ $href }}"
+       class="lang-switch__btn{{ if $isCurrent }} is-current{{ end }}"
+       lang="{{ $lang }}"
+       {{ if $isCurrent }}aria-current="true"{{ end }}>{{ $lang | upper }}</a>
+  {{- end -}}
+</nav>

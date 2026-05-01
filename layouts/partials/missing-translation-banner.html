@@ -1,0 +1,19 @@
+{{- /*
+  Banner shown when the user is on a page in language X but the current page
+  has no real translation in X (i.e., body content is empty or stub).
+
+  Fires on: pages whose Lang is "en" AND whose Content length is small
+  (heuristic: < 80 chars rendered, indicating frontmatter-only stub).
+
+  Bilingual single line so a French speaker reaching an empty EN page sees
+  the FR sentence and an English speaker sees the EN sentence.
+*/ -}}
+{{- if and (eq .Lang "en") (lt (len (plainify .Content)) 80) -}}
+<aside class="banner banner--translation" role="status">
+  <p>
+    <span lang="fr">{{ i18n "missing_translation_fr" }}</span>
+    <span class="banner__sep" aria-hidden="true">·</span>
+    <span lang="en">{{ i18n "missing_translation_en" }}</span>
+  </p>
+</aside>
+{{- end -}}

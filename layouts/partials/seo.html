@@ -1,0 +1,19 @@
+{{- $title := cond .IsHome .Site.Title (printf "%s — %s" .Title .Site.Title) -}}
+{{- $desc := .Description | default .Site.Params.description -}}
+<meta name="description" content="{{ $desc }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ replace .Site.Language.LanguageCode "-" "_" }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{- with .Params.image -}}
+<meta property="og:image" content="{{ . | absURL }}">
+{{- end }}
+<meta name="twitter:card" content="summary_large_image">
+
+{{/* hreflang signals to Google: each language URL for this page */}}
+{{- range .AllTranslations -}}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">

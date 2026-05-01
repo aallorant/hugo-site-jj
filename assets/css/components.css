@@ -1,2 +1,232 @@
-/* Components: header, footer, language switcher, banner, lightbox.
-   Filled in commit 5 (header/footer/switcher/banner) and commit 7 (lightbox). */
+/* Site header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-rule);
+  transition: background var(--transition-slow), border-color var(--transition-slow), color var(--transition-slow);
+}
+
+/* On the homepage, the header floats over a 100vh hero. We start
+   transparent + ivory text, and switch to the default ivory chrome
+   once the user scrolls past ~80vh (toggled by JS). */
+.site-header[data-on-hero="true"]:not(.is-scrolled) {
+  background: transparent;
+  border-bottom-color: transparent;
+  color: var(--color-paper);
+}
+.site-header[data-on-hero="true"]:not(.is-scrolled) .site-header__name,
+.site-header[data-on-hero="true"]:not(.is-scrolled) .site-header__sub,
+.site-header[data-on-hero="true"]:not(.is-scrolled) .site-nav__link,
+.site-header[data-on-hero="true"]:not(.is-scrolled) .lang-switch__btn {
+  color: var(--color-paper);
+}
+.site-header[data-on-hero="true"]:not(.is-scrolled) .lang-switch__btn.is-current {
+  border-bottom-color: var(--color-paper);
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+}
+
+.site-header__brand {
+  text-decoration: none;
+  border: 0 !important;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.site-header__name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-hero);
+}
+.site-header__sub {
+  font-family: var(--font-eyebrow);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-muted);
+  margin-top: 2px;
+}
+.site-header__brand:hover .site-header__name { color: var(--color-bronze); }
+
+/* Primary nav */
+.site-nav__list {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+}
+.site-nav__link {
+  font-family: var(--font-eyebrow);
+  font-size: var(--size-small);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink);
+  padding-block: var(--space-1);
+  border-bottom: 1px solid transparent;
+}
+.site-nav__link:hover, .site-nav__link:focus-visible,
+.site-nav__link.is-active {
+  border-bottom-color: var(--color-bronze);
+  color: var(--color-bronze);
+}
+
+/* Mobile toggle — hidden on desktop */
+.site-header__toggle {
+  display: none;
+  width: 28px;
+  height: 22px;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.site-header__toggle-bar {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform var(--transition-quick), opacity var(--transition-quick);
+}
+
+@media (max-width: 880px) {
+  .site-header__inner {
+    grid-template-columns: 1fr auto auto;
+    gap: var(--space-2);
+  }
+  .site-header__toggle { display: flex; }
+  .site-nav {
+    position: fixed;
+    inset: 70px 0 0 0;
+    background: var(--color-paper);
+    transform: translateX(100%);
+    transition: transform var(--transition-slow);
+    overflow-y: auto;
+    padding: var(--space-5) var(--space-4);
+    border-top: 1px solid var(--color-rule);
+  }
+  .site-nav.is-open { transform: translateX(0); }
+  .site-nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .site-nav__link { font-size: 1rem; }
+  body.nav-open { overflow: hidden; }
+}
+
+/* Language switcher */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.lang-switch__btn {
+  font-family: var(--font-eyebrow);
+  font-size: var(--size-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-muted);
+  padding-block: 2px;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+}
+.lang-switch__btn:hover { color: var(--color-bronze); border-bottom-color: var(--color-bronze); }
+.lang-switch__btn.is-current {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-bronze);
+}
+
+/* Missing-translation banner */
+.banner--translation {
+  background: var(--color-paper-deep);
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-bronze);
+  padding: var(--space-2) var(--space-3);
+  text-align: center;
+  font-family: var(--font-eyebrow);
+  font-size: var(--size-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-muted);
+}
+.banner--translation p { margin: 0; }
+.banner__sep { margin-inline: 0.6em; color: var(--color-bronze); }
+
+/* Site footer */
+.site-footer {
+  margin-top: var(--space-7);
+  border-top: 1px solid var(--color-rule);
+  padding-block: var(--space-5);
+  background: var(--color-paper-deep);
+}
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+@media (max-width: 720px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-3);
+  }
+}
+.site-footer__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.site-footer__tagline {
+  font-family: var(--font-eyebrow);
+  font-size: var(--size-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-muted);
+  margin-top: 4px;
+}
+.site-footer__col--links ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__col--links a {
+  font-family: var(--font-eyebrow);
+  font-size: var(--size-small);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-muted);
+}
+.site-footer__col--links a:hover { color: var(--color-bronze); }
+.site-footer__col--copyright {
+  font-family: var(--font-eyebrow);
+  font-size: var(--size-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-muted);
+  text-align: right;
+}
+@media (max-width: 720px) {
+  .site-footer__col--copyright { text-align: center; }
+}
+.site-footer__years {
+  margin-top: 4px;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Visually hidden util */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
