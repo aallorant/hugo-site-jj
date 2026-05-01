@@ -1,1 +1,53 @@
-/* Long-form prose pages — filled in commit 10. .prose base lives in base.css. */
+/* ============================================================
+   Prose pages — Biographie, Salons, À propos, Contact, etc.
+   .prose base styles live in base.css; this file handles the
+   page chrome (hero, header, body wrapper).
+   ============================================================ */
+
+.prose-page__header {
+  padding-block: var(--space-6) var(--space-4);
+  text-align: center;
+}
+.prose-page__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--size-h1);
+  letter-spacing: var(--tracking-hero);
+  margin: 0;
+}
+.prose-page__lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-ink-muted);
+  font-size: clamp(1.125rem, 1vw + 0.5rem, 1.375rem);
+  margin-top: var(--space-2);
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.page-hero--prose {
+  /* Slightly taller than events hero, shorter than gallery, between 30vh
+     and 45vh. Long-form pages benefit from a calm header. */
+  height: 38vh;
+  min-height: 22rem;
+}
+
+.prose-page__body {
+  padding-block: var(--space-5) var(--space-7);
+}
+
+/* Long-form prose width override: a touch wider on this page than the
+   default .prose so the markdown's images and tables can breathe. */
+.prose-page__body .prose { max-width: 38rem; }
+.prose-page__body .prose img { max-width: calc(100% + 4rem); margin-inline: -2rem; }
+@media (max-width: 720px) {
+  .prose-page__body .prose img { max-width: 100%; margin-inline: 0; }
+}
+
+/* On hero-bearing prose pages, suppress the duplicate H1 if the markdown
+   begins with "# Title" matching the page title. Markdown's first H1 is
+   often redundant with the hero. We can't trim from CSS alone, so we
+   simply de-emphasize an H1 that appears as the first child of .prose. */
+.page-hero + .prose-page__body .prose > h1:first-child {
+  display: none;
+}

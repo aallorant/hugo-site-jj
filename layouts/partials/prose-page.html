@@ -1,0 +1,30 @@
+{{- /* Prose page: title hero + long-form text. Used by Biographie, Salons,
+       À propos, Contact, and any other page without bundle galleries.
+       Drop-cap is applied automatically when type:prose is in frontmatter. */ -}}
+{{- $hero := .Params.hero_image -}}
+{{- $useDropCap := eq .Params.type "prose" -}}
+<article class="prose-page">
+  {{ if $hero }}
+  <section class="page-hero page-hero--prose">
+    <div class="page-hero__image">
+      <img src="{{ $hero }}" alt="{{ .Params.hero_alt | default "" }}" loading="eager" fetchpriority="high">
+    </div>
+    <div class="page-hero__overlay" aria-hidden="true"></div>
+    <div class="page-hero__content container">
+      <h1 class="page-hero__title">{{ .Title }}</h1>
+      {{ with .Description }}<p class="page-hero__lede">{{ . }}</p>{{ end }}
+    </div>
+  </section>
+  {{ else }}
+  <header class="prose-page__header container container--prose">
+    <h1 class="prose-page__title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="prose-page__lede">{{ . }}</p>{{ end }}
+  </header>
+  {{ end }}
+
+  <div class="prose-page__body container container--prose">
+    <div class="prose{{ if $useDropCap }} dropcap{{ end }}">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
