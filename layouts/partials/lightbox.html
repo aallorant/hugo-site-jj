@@ -13,11 +13,12 @@
 </dialog>
 <script>
 (function () {
-  var grid = document.querySelector('[data-lightbox-grid]');
   var dialog = document.getElementById('lightbox');
-  if (!grid || !dialog) return;
-
-  var links = Array.prototype.slice.call(grid.querySelectorAll('[data-lightbox]'));
+  if (!dialog) return;
+  // Collect lightbox links from anywhere in the document so pages with
+  // multiple grids (e.g. the merged Atelier page) work without fuss.
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
+  if (!links.length) return;
   var img = dialog.querySelector('.lightbox__image');
   var caption = dialog.querySelector('.lightbox__caption');
   var current = 0;

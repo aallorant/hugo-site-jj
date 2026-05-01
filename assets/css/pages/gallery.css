@@ -205,6 +205,49 @@
   filter: saturate(1);
 }
 
+/* ---------- Atelier merged page (anchors + sections) ---------- */
+.atelier-anchors {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-rule);
+  flex-wrap: wrap;
+}
+.atelier-anchors__link {
+  font-family: var(--font-eyebrow);
+  font-size: var(--size-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-muted);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 4px;
+}
+.atelier-anchors__link:hover {
+  color: var(--color-bronze);
+  border-bottom-color: var(--color-bronze);
+}
+
+.atelier-section { padding-block: var(--space-6); scroll-margin-top: 4rem; }
+.atelier-section + .atelier-section {
+  border-top: 1px solid var(--color-rule);
+}
+.atelier-section__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.atelier-section__header .eyebrow {
+  margin: 0;
+  font-size: var(--size-small);
+}
+.atelier-section__rule { margin: 0; }
+.atelier-section__intro {
+  padding-block: 0 var(--space-4);
+}
+
 /* ---------- Lightbox ---------- */
 .lightbox {
   border: 0;
