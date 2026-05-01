@@ -95,7 +95,7 @@
         </div>
         <div class="event-row__body">
           <time class="event-row__date" datetime="{{ .Date.Format "2006-01-02" }}">
-            {{ .Date.Format (i18n "date_format") | upper }}
+            {{ (time.Format (i18n "date_format") .Date) | upper }}
           </time>
           <h3 class="event-row__title">{{ .Title }}</h3>
           {{ with .Params.lieu }}<p class="event-row__lieu">{{ . }}</p>{{ end }}

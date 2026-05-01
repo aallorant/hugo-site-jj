@@ -1,42 +1,58 @@
 {{ define "main" }}
-<article class="prose">
-  <h1>{{ .Title }}</h1>
-  
-  {{ .Content }}
+{{- $heroImage := .Params.hero_image | default "/images/atelier/atelier-jeanne-jozon--2.jpg" -}}
 
-  <h2>Événements à venir</h2>
-  
-  {{ $upcoming := where .Pages "Date" "ge" now }}
+{{/* ---------- Hero ---------- */}}
+<section class="page-hero page-hero--events">
+  <div class="page-hero__image">
+    <img src="{{ $heroImage }}" alt="" loading="eager" fetchpriority="high">
+  </div>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="page-hero__content container">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-hero__lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+{{/* ---------- Intro ---------- */}}
+{{ with .Content }}
+<section class="events-intro container container--prose">
+  <div class="prose">{{ . }}</div>
+</section>
+{{ end }}
+
+{{/* ---------- Upcoming ---------- */}}
+{{- $upcoming := where .Pages "Date" ">=" now -}}
+{{- $past     := where .Pages "Date" "<" now -}}
+
+<section class="events-section events-section--upcoming container">
+  <div class="events-section__header">
+    <span class="eyebrow eyebrow--bronze">{{ i18n "events_upcoming" }}</span>
+    <hr class="rule rule--bronze events-section__rule">
+  </div>
   {{ if $upcoming }}
+  <ol class="event-list">
     {{ range $upcoming.ByDate }}
-    <div class="event-item" style="margin-bottom: 2rem; padding: 1rem; border-left: 3px solid #c07c3a;">
-      <h3 style="margin: 0;">{{ .Title }}</h3>
-      <p style="color: #666; margin: 0.5rem 0;">
-        📅 {{ .Date.Format "02/01/2006" }}
-        {{ with .Params.lieu }} · 📍 {{ . }}{{ end }}
-      </p>
-      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
-      {{ if .Content }}<a href="{{ .RelPermalink }}">En savoir plus →</a>{{ end }}
-    </div>
+    {{ partial "event-row.html" (dict "page" . "past" false) }}
     {{ end }}
+  </ol>
   {{ else }}
-    <p><em>Aucun événement à venir pour le moment.</em></p>
+  <p class="events-empty"><em>{{ i18n "events_none" }}</em></p>
   {{ end }}
+</section>
 
-  {{ $past := where .Pages "Date" "lt" now }}
-  {{ if $past }}
-  <h2>Événements passés</h2>
+{{/* ---------- Past ---------- */}}
+{{ if $past }}
+<section class="events-section events-section--past container">
+  <div class="events-section__header">
+    <span class="eyebrow eyebrow--bronze">{{ i18n "events_past" }}</span>
+    <hr class="rule events-section__rule">
+  </div>
+  <ol class="event-list event-list--past">
     {{ range $past.ByDate.Reverse }}
-    <div class="event-item" style="margin-bottom: 2rem; padding: 1rem; border-left: 3px solid #999; opacity: 0.8;">
-      <h3 style="margin: 0;">{{ .Title }}</h3>
-      <p style="color: #666; margin: 0.5rem 0;">
-        📅 {{ .Date.Format "02/01/2006" }}
-        {{ with .Params.lieu }} · 📍 {{ . }}{{ end }}
-      </p>
-      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
-    </div>
+    {{ partial "event-row.html" (dict "page" . "past" true) }}
     {{ end }}
-  {{ end }}
+  </ol>
+</section>
+{{ end }}
 
-</article>
 {{ end }}

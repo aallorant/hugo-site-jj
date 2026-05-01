@@ -1,0 +1,21 @@
+{{- /* Reusable event row used by /evenements/ list and homepage events section. */ -}}
+{{- $p := .page -}}
+{{- $past := .past -}}
+<li class="event-row{{ if $past }} event-row--past{{ end }}">
+  <div class="event-row__media">
+    {{ with $p.Params.image }}
+    <img src="{{ . }}" alt="" loading="lazy">
+    {{ else }}
+    <div class="event-row__placeholder" aria-hidden="true"></div>
+    {{ end }}
+  </div>
+  <div class="event-row__body">
+    <time class="event-row__date" datetime="{{ $p.Date.Format "2006-01-02" }}">
+      {{ (time.Format (i18n "date_format") $p.Date) | upper }}
+    </time>
+    <h3 class="event-row__title">{{ $p.Title }}</h3>
+    {{ with $p.Params.lieu }}<p class="event-row__lieu">{{ . }}</p>{{ end }}
+    {{ with $p.Params.summary }}<p class="event-row__summary">{{ . | truncate 240 }}</p>{{ end }}
+    <a href="{{ $p.RelPermalink }}" class="link-arrow">{{ i18n "read_more" }} →</a>
+  </div>
+</li>
