@@ -1,20 +1,40 @@
 {{ define "main" }}
-<article class="prose">
-  <h1>{{ .Title }}</h1>
-  
-  <p style="color: #666;">
-    📅 {{ .Date.Format "02/01/2006 à 15:04" }}
-    {{ with .Params.lieu }} · 📍 {{ . }}{{ end }}
-  </p>
+{{- $eventsURL := cond (eq .Lang "fr") "/evenements/" "/en/news/" -}}
+<article class="event-single">
+  <div class="container container--prose">
 
-  {{ with .Params.image }}
-  <img src="{{ . }}" alt="{{ $.Title }}" style="max-width: 100%; margin: 1rem 0;">
-  {{ end }}
+    <p class="event-single__back">
+      <a href="{{ $eventsURL }}" class="link-arrow">← {{ i18n "back_to_events" }}</a>
+    </p>
 
-  {{ .Content }}
+    <header>
+      <p class="event-single__date">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ (time.Format (i18n "date_format") .Date) | upper }}
+        </time>
+      </p>
+      <h1 class="event-single__title">{{ .Title }}</h1>
+      {{ with .Params.lieu }}<p class="event-single__lieu">{{ . }}</p>{{ end }}
+    </header>
 
-  <p style="margin-top: 2rem;">
-    <a href="/evenements/">← Retour aux événements</a>
-  </p>
+    {{ with .Params.image }}
+    <figure class="event-single__image">
+      <img src="{{ . }}" alt="{{ $.Title }}">
+    </figure>
+    {{ end }}
+
+    {{ with .Params.summary }}
+    <div class="prose"><p><em>{{ . }}</em></p></div>
+    <hr class="rule">
+    {{ end }}
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    <p class="event-single__back" style="margin-top: var(--space-5);">
+      <a href="{{ $eventsURL }}" class="link-arrow">← {{ i18n "back_to_events" }}</a>
+    </p>
+  </div>
 </article>
 {{ end }}
