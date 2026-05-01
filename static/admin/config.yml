@@ -11,6 +11,10 @@ collections:
   # =====================
   # ÉVÉNEMENTS
   # =====================
+  # Each event has a French side (required) and an optional English side.
+  # Father can publish in French only and fill English later — the EN
+  # fields render only when set, with FR fallback per missing-translation
+  # behavior.
   - name: "evenements"
     label: "Événements"
     label_singular: "Événement"
@@ -19,7 +23,8 @@ collections:
     slug: "{{year}}-{{month}}-{{slug}}"
     summary: "{{title}} — {{date}}"
     fields:
-      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Titre (français)", name: "title", widget: "string" }
+      - { label: "Title (English) — facultatif", name: "title_en", widget: "string", required: false }
       - label: "Date de l'événement"
         name: "date"
         widget: "datetime"
@@ -27,12 +32,14 @@ collections:
         time_format: "HH:mm"
         format: "YYYY-MM-DDTHH:mm:00.000Z"
       - { label: "Lieu", name: "lieu", widget: "string", required: false }
-      - { label: "Résumé", name: "summary", widget: "text", required: false }
+      - { label: "Résumé (français)", name: "summary", widget: "text", required: false }
+      - { label: "Summary (English) — facultatif", name: "summary_en", widget: "text", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Contenu", name: "body", widget: "markdown", required: false }
+      - { label: "Contenu (français)", name: "body", widget: "markdown", required: false }
+      - { label: "Body (English) — facultatif", name: "body_en", widget: "markdown", required: false }
 
   # =====================
-  # PAGES PRINCIPALES  
+  # PAGES PRINCIPALES
   # =====================
   - name: "pages"
     label: "Pages"
@@ -42,32 +49,38 @@ collections:
         file: "content/_index.md"
         fields:
           - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Contenu", name: "body", widget: "markdown" }
+          - { label: "Brève introduction (page d'accueil)", name: "description", widget: "text", required: false, hint: "Phrase courte qui apparaît dans la balise meta-description et les partages sociaux." }
+          - { label: "Image du hero (chemin)", name: "hero_image", widget: "string", required: false, hint: "Chemin vers l'image (ex. /images/atelier/jeanne-sculptant-1897-2.jpg)." }
+          - { label: "Texte alt du hero", name: "hero_alt", widget: "string", required: false }
+          - { label: "Paragraphe de fermeture (section L'Association)", name: "body", widget: "markdown", required: false, hint: "Court texte qui apparaît tout en bas de la page d'accueil. Le reste de la page est généré automatiquement." }
 
       - label: "Biographie"
         name: "biographie"
         file: "content/biographie/index.md"
         fields:
           - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Contenu", name: "body", widget: "markdown" }
-      
+          - { label: "Description (sous-titre)", name: "description", widget: "text", required: false }
+          - { label: "Image du hero (chemin)", name: "hero_image", widget: "string", required: false }
+          - { label: "Texte alt du hero", name: "hero_alt", widget: "string", required: false }
+          - { label: "Contenu (français)", name: "body", widget: "markdown" }
+
       - label: "Salons et Expositions"
         name: "salons"
         file: "content/salons/index.md"
         fields:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Image du hero (chemin)", name: "hero_image", widget: "string", required: false }
           - { label: "Contenu", name: "body", widget: "markdown" }
-      
+
       - label: "À propos"
         name: "a-propos"
         file: "content/a-propos/index.md"
         fields:
           - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Image du hero (chemin)", name: "hero_image", widget: "string", required: false }
           - { label: "Contenu", name: "body", widget: "markdown" }
-      
+
       - label: "Contact"
         name: "contact"
         file: "content/contact/index.md"
@@ -75,92 +88,26 @@ collections:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Contenu", name: "body", widget: "markdown" }
 
+      - label: "Œuvre — page d'index"
+        name: "oeuvre-index"
+        file: "content/production/_index.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Image du hero (chemin)", name: "hero_image", widget: "string", required: false }
+          - { label: "Texte alt du hero", name: "hero_alt", widget: "string", required: false }
+          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
+
   # =====================
-  # GALERIES
+  # GALERIES (collections d'images)
   # =====================
+  # Each "galerie" maps to one folder of images on disk. The image folder
+  # paths are unchanged from before — your father edits each gallery as
+  # its own collection, exactly as before. The visitor surface is now
+  # consolidated (commits 12 & 13) but the editing surface is the same.
   - name: "galeries"
     label: "Galeries"
     files:
-      - label: "Atelier"
-        name: "atelier"
-        file: "content/atelier/index.md"
-        media_folder: ""
-        public_folder: ""
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
-            name: "new_images"
-            widget: "list"
-            label_singular: "Image"
-            required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
-
-      - label: "Portraits"
-        name: "portrait"
-        file: "content/portrait/index.md"
-        media_folder: ""
-        public_folder: ""
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
-            name: "new_images"
-            widget: "list"
-            label_singular: "Image"
-            required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
-
-      - label: "Rue de Babylone"
-        name: "rue-de-babylone"
-        file: "content/rue-de-babylone/index.md"
-        media_folder: ""
-        public_folder: ""
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
-            name: "new_images"
-            widget: "list"
-            label_singular: "Image"
-            required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
-
-      - label: "Scènes rurales"
-        name: "scenes-rurales"
-        file: "content/scenes-rurales/index.md"
-        media_folder: ""
-        public_folder: ""
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
-            name: "new_images"
-            widget: "list"
-            label_singular: "Image"
-            required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
-
       - label: "Sculptures"
         name: "sculpture"
         file: "content/production/sculpture/index.md"
@@ -175,11 +122,8 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
+            hint: "Ces images apparaîtront sur la page Sculpture."
+            field: { label: "Image", name: "image", widget: "image" }
 
       - label: "Bijoux"
         name: "bijoux"
@@ -195,13 +139,21 @@ collections:
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
+            hint: "Ces images apparaîtront sur la page Bijoux."
+            field: { label: "Image", name: "image", widget: "image" }
 
-      - label: "Ébauches"
+      # ---- Sous-collections agrégées dans « Œuvres sur papier » ----
+      - label: "Dessins (apparaît dans Œuvres sur papier)"
+        name: "dessins"
+        file: "content/production/dessins/_index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction (apparaît dans la section « Dessins » de la page Œuvres sur papier)", name: "body", widget: "markdown", required: false }
+
+      - label: "Ébauches (apparaît dans Œuvres sur papier)"
         name: "ebauches"
         file: "content/production/ebauches/index.md"
         media_folder: ""
@@ -209,39 +161,15 @@ collections:
         fields:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
+          - { label: "Texte d'introduction (apparaît dans la section « Ébauches » de la page Œuvres sur papier)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images"
             name: "new_images"
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
+            field: { label: "Image", name: "image", widget: "image" }
 
-      - label: "Jouets"
-        name: "jouets"
-        file: "content/production/jouets/index.md"
-        media_folder: ""
-        public_folder: ""
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
-            name: "new_images"
-            widget: "list"
-            label_singular: "Image"
-            required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
-
-      - label: "Pastels et Craies"
+      - label: "Pastels et Craies (apparaît dans Œuvres sur papier)"
         name: "pastel-craie"
         file: "content/production/pastel-craie/index.md"
         media_folder: ""
@@ -249,19 +177,32 @@ collections:
         fields:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
+          - { label: "Texte d'introduction (apparaît dans la section « Pastels et craies » de la page Œuvres sur papier)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images"
             name: "new_images"
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
+            field: { label: "Image", name: "image", widget: "image" }
 
-      - label: "Pyrogravures"
+      - label: "Scènes rurales (apparaît dans Œuvres sur papier)"
+        name: "scenes-rurales"
+        file: "content/scenes-rurales/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction (apparaît dans la section « Scènes rurales » de la page Œuvres sur papier)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            field: { label: "Image", name: "image", widget: "image" }
+
+      # ---- Sous-collections agrégées dans « Arts décoratifs » ----
+      - label: "Pyrogravures (apparaît dans Arts décoratifs)"
         name: "pyrogravure"
         file: "content/production/pyrogravure/index.md"
         media_folder: ""
@@ -269,19 +210,31 @@ collections:
         fields:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
+          - { label: "Texte d'introduction (apparaît dans la section « Pyrogravures » de la page Arts décoratifs)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images"
             name: "new_images"
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
+            field: { label: "Image", name: "image", widget: "image" }
 
-      - label: "Objets décoratifs"
+      - label: "Jouets (apparaît dans Arts décoratifs)"
+        name: "jouets"
+        file: "content/production/jouets/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction (apparaît dans la section « Jouets » de la page Arts décoratifs)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            field: { label: "Image", name: "image", widget: "image" }
+
+      - label: "Objets décoratifs — vases, bougeoirs, salières (apparaît dans Arts décoratifs)"
         name: "vases"
         file: "content/production/vases-buires-encriers-salieres/index.md"
         media_folder: ""
@@ -289,14 +242,59 @@ collections:
         fields:
           - { label: "Titre", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text", required: false }
-          - { label: "Texte d'introduction", name: "body", widget: "markdown", required: false }
-          - label: "Ajouter des images à la galerie"
+          - { label: "Texte d'introduction (apparaît dans la section « Objets » de la page Arts décoratifs)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des images"
             name: "new_images"
             widget: "list"
             label_singular: "Image"
             required: false
-            hint: "Ajoute de nouvelles images ici. Elles apparaîtront dans la galerie."
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
+            field: { label: "Image", name: "image", widget: "image" }
+
+      # ---- Sous-collections agrégées dans la page « Atelier » ----
+      - label: "Photos pour la section « Portraits de l'artiste » (page Atelier)"
+        name: "portrait"
+        file: "content/portrait/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction (apparaît dans la section « Portraits » de la page Atelier)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des photos"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            field: { label: "Image", name: "image", widget: "image" }
+
+      - label: "Photos pour la section « L'atelier rue de Babylone » (page Atelier)"
+        name: "atelier"
+        file: "content/atelier/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction (apparaît dans la section « L'atelier rue de Babylone » de la page Atelier)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des photos"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            field: { label: "Image", name: "image", widget: "image" }
+
+      - label: "Photos pour la section « Le quartier » (page Atelier)"
+        name: "rue-de-babylone"
+        file: "content/rue-de-babylone/index.md"
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Texte d'introduction (apparaît dans la section « Le quartier » de la page Atelier)", name: "body", widget: "markdown", required: false }
+          - label: "Ajouter des photos"
+            name: "new_images"
+            widget: "list"
+            label_singular: "Image"
+            required: false
+            field: { label: "Image", name: "image", widget: "image" }

@@ -1,5 +1,14 @@
 {{ define "main" }}
 {{- $eventsURL := cond (eq .Lang "fr") "/evenements/" "/en/news/" -}}
+{{- $isEN := eq .Lang "en" -}}
+{{- $title := .Title -}}
+{{- $summary := .Params.summary -}}
+{{- $body := .Content -}}
+{{- if $isEN -}}
+  {{- with .Params.title_en   -}}{{- $title = .   -}}{{- end -}}
+  {{- with .Params.summary_en -}}{{- $summary = . -}}{{- end -}}
+  {{- with .Params.body_en    -}}{{- $body = . | markdownify -}}{{- end -}}
+{{- end -}}
 <article class="event-single">
   <div class="container container--prose">
 
@@ -13,23 +22,23 @@
           {{ (time.Format (i18n "date_format") .Date) | upper }}
         </time>
       </p>
-      <h1 class="event-single__title">{{ .Title }}</h1>
+      <h1 class="event-single__title">{{ $title }}</h1>
       {{ with .Params.lieu }}<p class="event-single__lieu">{{ . }}</p>{{ end }}
     </header>
 
     {{ with .Params.image }}
     <figure class="event-single__image">
-      <img src="{{ . }}" alt="{{ $.Title }}">
+      <img src="{{ . }}" alt="{{ $title }}">
     </figure>
     {{ end }}
 
-    {{ with .Params.summary }}
+    {{ with $summary }}
     <div class="prose"><p><em>{{ . }}</em></p></div>
     <hr class="rule">
     {{ end }}
 
     <div class="prose">
-      {{ .Content }}
+      {{ $body }}
     </div>
 
     <p class="event-single__back" style="margin-top: var(--space-5);">

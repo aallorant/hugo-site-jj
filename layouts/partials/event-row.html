@@ -1,6 +1,16 @@
-{{- /* Reusable event row used by /evenements/ list and homepage events section. */ -}}
+{{- /* Reusable event row used by /evenements/ list and homepage events section.
+       Bilingual fall-through: when the visitor is on /en/ and the event has
+       title_en / summary_en filled in, those win; otherwise FR fields are used.
+       Date is always localized via i18n date_format. */ -}}
 {{- $p := .page -}}
 {{- $past := .past -}}
+{{- $isEN := eq $p.Lang "en" -}}
+{{- $title := $p.Title -}}
+{{- $summary := $p.Params.summary -}}
+{{- if $isEN -}}
+  {{- with $p.Params.title_en   -}}{{- $title = .   -}}{{- end -}}
+  {{- with $p.Params.summary_en -}}{{- $summary = . -}}{{- end -}}
+{{- end -}}
 <li class="event-row{{ if $past }} event-row--past{{ end }}">
   <div class="event-row__media">
     {{ with $p.Params.image }}
@@ -13,9 +23,9 @@
     <time class="event-row__date" datetime="{{ $p.Date.Format "2006-01-02" }}">
       {{ (time.Format (i18n "date_format") $p.Date) | upper }}
     </time>
-    <h3 class="event-row__title">{{ $p.Title }}</h3>
+    <h3 class="event-row__title">{{ $title }}</h3>
     {{ with $p.Params.lieu }}<p class="event-row__lieu">{{ . }}</p>{{ end }}
-    {{ with $p.Params.summary }}<p class="event-row__summary">{{ . | truncate 240 }}</p>{{ end }}
+    {{ with $summary }}<p class="event-row__summary">{{ . | truncate 240 }}</p>{{ end }}
     <a href="{{ $p.RelPermalink }}" class="link-arrow">{{ i18n "read_more" }} →</a>
   </div>
 </li>
