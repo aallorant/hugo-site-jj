@@ -1,0 +1,11 @@
+{{- /* Renders only on English pages — a single dignified italic line at
+       the bottom of every translated page acknowledging the AI-assisted
+       first pass. The user (or his collaborators) will replace specific
+       translations by hand over time; this disclaimer fades as that
+       happens or can be lifted on a per-page basis with frontmatter
+       `disclaimer: false`. */ -}}
+{{- if and (eq .Lang "en") (ne .Params.disclaimer false) -}}
+<aside class="translation-disclaimer container container--prose" role="note">
+  <p><em>{{ i18n "ai_translation_disclaimer" }}</em></p>
+</aside>
+{{- end -}}

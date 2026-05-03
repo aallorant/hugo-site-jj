@@ -49,3 +49,6 @@ footer_about: "À propos"
 # Language switcher
 lang_fr: "FR"
 lang_en: "EN"
+
+# Disclaimer key (rendered only on EN pages — kept in fr.yaml for symmetry)
+ai_translation_disclaimer: "Cette version anglaise a été préparée avec l'aide de l'IA et pourra être révisée."

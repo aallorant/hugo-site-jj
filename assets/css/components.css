@@ -223,6 +223,20 @@
   letter-spacing: 0;
 }
 
+/* AI-translation disclaimer — italic muted line above the footer on EN pages */
+.translation-disclaimer {
+  margin-top: var(--space-6);
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-rule);
+  text-align: center;
+}
+.translation-disclaimer p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--size-small);
+  color: var(--color-ink-muted);
+}
+
 /* Visually hidden util */
 .visually-hidden {
   position: absolute;

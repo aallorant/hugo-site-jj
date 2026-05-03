@@ -1,5 +1,8 @@
 ---
 title: "Contact"
 slug: "contact"
-draft: true
 ---
+
+You can reach the association at the following email address: pierre.allorant@gmail.com
+
+Thank you for your interest.

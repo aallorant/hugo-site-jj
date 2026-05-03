@@ -49,3 +49,6 @@ footer_about: "About"
 # Language switcher
 lang_fr: "FR"
 lang_en: "EN"
+
+# Disclaimer rendered at the bottom of every translated EN page
+ai_translation_disclaimer: "This English version was prepared with AI assistance and may be revised."
