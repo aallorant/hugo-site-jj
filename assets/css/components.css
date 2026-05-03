@@ -30,8 +30,12 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
   padding-block: var(--space-3);
+  /* Override the .container 72rem max so the FR nav (longer than EN)
+     has room at 1280px+ viewports. Below 1200px the container's own
+     padding rules still constrain things sensibly. */
+  max-width: var(--width-wide);
 }
 
 .site-header__brand {
@@ -61,13 +65,17 @@
 .site-nav__list {
   display: flex;
   justify-content: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 .site-nav__link {
   font-family: var(--font-eyebrow);
   font-size: var(--size-small);
   text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
+  /* Tighter than the default 0.12em eyebrow tracking — nav at desktop
+     widths needs to fit "ACCUEIL BIOGRAPHIE ŒUVRE ATELIER SALONS
+     ÉVÉNEMENTS À PROPOS" + the FR · EN switcher on a single line at
+     1280px. Tenor Sans uppercase carries 0.08em without feeling cramped. */
+  letter-spacing: 0.08em;
   color: var(--color-ink);
   padding-block: var(--space-1);
   border-bottom: 1px solid transparent;
