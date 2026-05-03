@@ -1,10 +1,14 @@
-{{- /* Reusable event row used by /evenements/ list and homepage events section.
-       Bilingual fall-through: when the visitor is on /en/ and the event has
-       title_en / summary_en filled in, those win; otherwise FR fields are used.
-       Date is always localized via i18n date_format. */ -}}
+{{- /* Reusable event row used by the /evenements/ list, /en/news/ list, and
+       homepage events section. Bilingual fall-through: events live as
+       single FR .md files with optional title_en / summary_en fields.
+       The caller passes `lang` so we can pick EN copy even when the
+       event page itself is FR-scoped (the EN news page looks up FR
+       events via .Sites). When called from a page-aware context that
+       doesn't pass `lang`, we fall back to the event page's own .Lang. */ -}}
 {{- $p := .page -}}
 {{- $past := .past -}}
-{{- $isEN := eq $p.Lang "en" -}}
+{{- $lang := .lang | default $p.Lang -}}
+{{- $isEN := eq $lang "en" -}}
 {{- $title := $p.Title -}}
 {{- $summary := $p.Params.summary -}}
 {{- if $isEN -}}

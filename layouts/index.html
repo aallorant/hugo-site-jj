@@ -76,7 +76,18 @@
 </section>
 
 {{/* ---------- Section 4 — Upcoming events ---------- */}}
-{{- $events := where (where .Site.RegularPages "Section" "evenements") "Date" ">=" now -}}
+{{- /* Events live as FR-only .md files with optional _en fields. In EN
+       context, look up the FR section's pages explicitly so the EN
+       homepage shows the same upcoming events with EN-translated copy. */ -}}
+{{- $eventSource := .Site.RegularPages -}}
+{{- if eq .Lang "en" -}}
+  {{- range .Sites -}}
+    {{- if eq .Language.Lang "fr" -}}
+      {{- $eventSource = .RegularPages -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $events := where (where $eventSource "Section" "evenements") "Date" ">=" now -}}
 {{- $upcoming := first 3 ($events.ByDate) -}}
 {{- if $upcoming }}
 <section class="home-events">
@@ -85,24 +96,7 @@
     <h2 class="home-events__title">{{ i18n "events_upcoming" }}</h2>
     <ul class="event-list">
       {{- range $upcoming }}
-      <li class="event-row">
-        <div class="event-row__media">
-          {{ with .Params.image }}
-          <img src="{{ . }}" alt="" loading="lazy">
-          {{ else }}
-          <div class="event-row__placeholder" aria-hidden="true"></div>
-          {{ end }}
-        </div>
-        <div class="event-row__body">
-          <time class="event-row__date" datetime="{{ .Date.Format "2006-01-02" }}">
-            {{ (time.Format (i18n "date_format") .Date) | upper }}
-          </time>
-          <h3 class="event-row__title">{{ .Title }}</h3>
-          {{ with .Params.lieu }}<p class="event-row__lieu">{{ . }}</p>{{ end }}
-          {{ with .Params.summary }}<p class="event-row__summary">{{ . | truncate 200 }}</p>{{ end }}
-          <a href="{{ .RelPermalink }}" class="link-arrow">{{ i18n "read_more" }} →</a>
-        </div>
-      </li>
+        {{ partial "event-row.html" (dict "page" . "past" false "lang" $.Lang) }}
       {{- end }}
     </ul>
     <p class="home-events__more">

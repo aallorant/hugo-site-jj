@@ -21,8 +21,23 @@
 {{ end }}
 
 {{/* ---------- Upcoming ---------- */}}
-{{- $upcoming := where .Pages "Date" ">=" now -}}
-{{- $past     := where .Pages "Date" "<" now -}}
+{{- /* Events use the in-place bilingual pattern (one .md file per event,
+       optional title_en/summary_en/body_en fields) — they're authored only
+       in the FR section. In EN context, .Pages would be empty, so we look
+       up the FR section's pages explicitly. The event-row partial handles
+       per-language field selection. */ -}}
+{{- $eventPages := .Pages -}}
+{{- if eq .Lang "en" -}}
+  {{- range .Sites -}}
+    {{- if eq .Language.Lang "fr" -}}
+      {{- with .GetPage "/evenements" -}}
+        {{- $eventPages = .Pages -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $upcoming := where $eventPages "Date" ">=" now -}}
+{{- $past     := where $eventPages "Date" "<" now -}}
 
 <section class="events-section events-section--upcoming container">
   <div class="events-section__header">
@@ -32,7 +47,7 @@
   {{ if $upcoming }}
   <ol class="event-list">
     {{ range $upcoming.ByDate }}
-    {{ partial "event-row.html" (dict "page" . "past" false) }}
+    {{ partial "event-row.html" (dict "page" . "past" false "lang" $.Lang) }}
     {{ end }}
   </ol>
   {{ else }}
@@ -49,7 +64,7 @@
   </div>
   <ol class="event-list event-list--past">
     {{ range $past.ByDate.Reverse }}
-    {{ partial "event-row.html" (dict "page" . "past" true) }}
+    {{ partial "event-row.html" (dict "page" . "past" true "lang" $.Lang) }}
     {{ end }}
   </ol>
 </section>
