@@ -1,5 +1,9 @@
 {{- $home := .Site.Home -}}
-<header class="site-header" data-on-hero="{{ if .IsHome }}true{{ else }}false{{ end }}">
+{{- /* The transparent-over-hero header treatment only makes sense when the
+       hero is dark and full-bleed. With a light hero (drawing on cream
+       paper), the header keeps its default chrome so it stays visible. */ -}}
+{{- $onHero := and .IsHome (ne .Params.hero_tone "light") -}}
+<header class="site-header" data-on-hero="{{ if $onHero }}true{{ else }}false{{ end }}">
   <a class="skip-link" href="#main">{{ if eq .Lang "fr" }}Aller au contenu{{ else }}Skip to content{{ end }}</a>
 
   <div class="site-header__inner container">

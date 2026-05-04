@@ -3,9 +3,10 @@
 {{ define "main" }}
 {{- $heroImage := .Params.hero_image | default "/images/atelier/jeanne-sculptant-1897-2.jpg" -}}
 {{- $heroAlt := .Params.hero_alt | default "Jeanne Jozon sculptant dans son atelier de la rue de Babylone, vers 1897" -}}
+{{- $heroLight := eq .Params.hero_tone "light" -}}
 
 {{/* ---------- Section 1 — Hero ---------- */}}
-<section class="hero" aria-label="{{ .Site.Title }}">
+<section class="hero{{ if $heroLight }} hero--light{{ end }}" aria-label="{{ .Site.Title }}">
   <div class="hero__image">
     <img src="{{ $heroImage }}" alt="{{ $heroAlt }}" loading="eager" fetchpriority="high">
   </div>

@@ -86,6 +86,78 @@
 @media (prefers-reduced-motion: reduce) {
   .hero__scroll { animation: none; }
 }
+/* ---------- Hero — light variant (pen-and-ink drawing on cream paper) ----
+   For when the hero image is an artwork (drawing, watercolor, etc.) on a
+   light support rather than a darkenable photograph. The header drops its
+   transparent-over-hero treatment (handled in header.html), the title
+   block flips to dark ink, and the image is contained (not cropped) so
+   the artwork shows whole. The scroll cue stays bronze. */
+.hero--light {
+  /* Switch from absolute-overlay layout to a flex column: drawing on top,
+     title block below on cream paper. No overlap, no compromise on the
+     drawing's composition. */
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 0;
+  max-height: 95vh;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  margin-top: 0; /* the header isn't transparent here, no pull-up needed */
+}
+.hero--light .hero__image {
+  position: static;
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  /* The drawing's natural ratio is ~5:3.3. We give the image area a
+     min-height so it has a presence; max-height keeps it from
+     dominating extra-tall viewports. */
+  aspect-ratio: 5 / 3;
+  max-height: 70vh;
+}
+.hero--light .hero__image img {
+  position: static;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+}
+.hero--light .hero__overlay {
+  display: none;
+}
+.hero--light .hero__content {
+  position: static;
+  padding: var(--space-4) 0 var(--space-5);
+}
+.hero--light .hero__scroll {
+  bottom: var(--space-2);
+  color: var(--color-bronze);
+}
+.hero--light .hero__scroll:hover {
+  color: var(--color-ink);
+}
+.hero--light .hero__eyebrow {
+  color: var(--color-ink-muted);
+}
+.hero--light .hero__name {
+  color: var(--color-ink);
+}
+.hero--light .hero__subtitle {
+  color: var(--color-ink-muted);
+}
+.hero--light .hero__scroll {
+  color: var(--color-bronze);
+}
+.hero--light .hero__scroll:hover {
+  color: var(--color-ink);
+}
+@media (max-width: 720px) {
+  .hero--light { aspect-ratio: 4 / 5; max-height: 80vh; }
+}
+
 @media (max-width: 720px) {
   .hero { min-height: 32rem; margin-top: -64px; }
   .hero__content { bottom: var(--space-5); }
