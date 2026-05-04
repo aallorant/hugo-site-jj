@@ -1,7 +1,7 @@
 ---
 title: Les Amis de Jeanne Jozon
 description: Association dédiée à faire redécouvrir la vie, la diversité et l'actualité de l'œuvre de Jeanne Jozon, sculptrice et artiste Art nouveau (1868–1946).
-hero_image: /images/appartement-babylone/Jeanne Jozon dans son atelier sculptant une enfant en 1890 Henriette Martin.jpg
+hero_image: /images/appartement-babylone/henriette-martin-1890-jeanne-sculptant.jpg
 hero_alt: Jeanne Jozon sculptant un buste d'enfant dans son atelier — dessin à la plume signé Henriette Martin, 1890
 hero_tone: light
 ---
